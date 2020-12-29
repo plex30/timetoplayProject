@@ -7,11 +7,14 @@ window.onload = ()=>{
 
 const showHeader = ()=>{
     const head$$ = document.createElement('header');
+    head$$.classList.add('header-main');
     document.body.appendChild(head$$);
     const nav$$ = document.createElement('nav');
+    nav$$.classList.add('navbar')
     head$$.appendChild(nav$$);
     creatLogo();
     createNav();
+    navBurguer();
     createSearch();
 }
 
@@ -42,6 +45,8 @@ const creatLogo = ()=>{
 const createNav = ()=>{
 
     const nav$$ = document.querySelector('nav');
+    const container$$ = document.createElement('div');
+    container$$.classList.add('container-full');
     const ul$$ = document.createElement('ul');
 
     for (let i = 0; i < 4; i++) {
@@ -62,7 +67,18 @@ const createNav = ()=>{
     ul$$.appendChild(li$$);
         
     }
-    nav$$.appendChild(ul$$);
+    container$$.appendChild(ul$$);
+    nav$$.appendChild(container$$);
+}
+
+const navBurguer = ()=>{
+  const nav$$ = document.querySelector('nav');
+  const container$$ = document.createElement('div');
+  container$$.classList.add('container-collapse');
+  const spanActive$$ = document.createElement('span');
+  spanActive$$.classList.add('active');
+  container$$.appendChild(spanActive$$);
+  nav$$.appendChild(container$$);
 }
 
 const createSearch = ()=>{
@@ -144,7 +160,43 @@ const cardPost = ()=>{
     const main$$ = document.querySelector('main');
     const divMain$$ = document.createElement('div');
     divMain$$.classList.add('card-post');
-    divMain$$.innerHTML = `
+
+    callData('posts').then(postData =>{
+        for (const post of postData) {
+            const card$$ = document.createElement('div');
+            card$$.classList.add('card');
+            const imgCard$$ = document.createElement('img');
+            imgCard$$.classList.add('card-img-top');
+            imgCard$$.setAttribute('src', post.image);
+            card$$.appendChild(imgCard$$);
+            divMain$$.appendChild(card$$);
+            const cardBody$$ = document.createElement('div');
+            cardBody$$.classList.add('card-body');
+            const h5Card$$ = document.createElement('h5');
+            h5Card$$.textContent = post.tittle;
+            const pCard$$ = document.createElement('p');
+            pCard$$.textContent = post.content;
+            const aCard$$ = document.createElement('a');
+            aCard$$.setAttribute('href', '#');
+            aCard$$.textContent = 'Seguir leyendo';
+            cardBody$$.appendChild(h5Card$$);
+            cardBody$$.appendChild(pCard$$);
+            cardBody$$.appendChild(aCard$$);
+            card$$.appendChild(cardBody$$);
+            const cardFooter$$ = document.createElement('div');
+            cardFooter$$.classList.add('card-footer');
+            const smallCard$$ = document.createElement('small');
+            smallCard$$.classList.add('text-muted');
+            smallCard$$.textContent = post.date;
+            cardFooter$$.appendChild(smallCard$$);
+            card$$.appendChild(cardFooter$$);
+            divMain$$.appendChild(card$$);
+        }
+        insertAfter(main$$, divMain$$);
+    })
+    
+
+    /* divMain$$.innerHTML = `
     <div class="card">
       <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
@@ -210,9 +262,9 @@ const cardPost = ()=>{
       <div class="card-footer">
         <small class="text-muted">Last updated 3 mins ago</small>
       </div>
-    </div>`;
+    </div>`; */
   /* main$$.appendChild(divMain$$); */
-  insertAfter(main$$, divMain$$);
+  
 }
 
 function insertAfter(e,i){ 

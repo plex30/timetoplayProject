@@ -1,85 +1,105 @@
 {
-    "highPosts":[
-{
-    "id": 1,
-    "name": "Especiales",
-    "tittle": "Consolas de nueva generación",
-    "image": "src/assets/img/newgeneration.png",
-    "date": "Diciembre",
-    "content": "La salida al mercado de PS5 ha sido todo un acontecimiento mediático. No sólo las redes sociales se han hecho eco del lanzamiento de la nueva consola de Sony, también los telediarios de los canales ..."
-},
-{
-    "id": 2,
-    "name": "Videojuegos",
-    "tittle": "El juicio a Ciberpunk 2077",
-    "image": "src/assets/img/judgecyber.jpg",
-    "date": "Noviembre",
-    "content": "No es casualidad que hayamos utilizado como portada para este artículo especial la misma imagen con la que CD Projekt RED anunció que estaba trabajando en un nuevo y prometedor videojuego de ambientación futurista. Un ..."
-},
-{
-    "id": 3,
-    "name": "Retro",
-    "tittle": "Toy Commander",
-    "image": "src/assets/img/toy.jpg",
-    "date": "Octubre",
-    "content": "Imagina que un buen día tus juguetes se hartan por lo mal que los has tratado y deciden amotinarse. El líder de esta rebelión, el gran oso de peluche Hugolin, reclama el título de Toy ..."
-},
-{
-    "id": 4,
-    "name": "Análisis",
-    "tittle": "Análisis Assassin's Creed Valhalla",
-    "image": "src/assets/img/assassin.jpg",
-    "date": "Diciembre",
-    "content": "Los vikingos, moradores del norte de Europa en el siglo IX, formaron uno de los pueblos más fascinantes y misteriosos del mundo antiguo. Todavía conocemos poco de este pueblo..."
-}],
-    "posts":[
-    {
-        "id": 1,
-        "name": "Especiales",
-        "tittle": "Consolas de nueva generación",
-        "image": "src/assets/img/newgeneration.png",
-        "date": "Diciembre",
-        "content": "La salida al mercado de PS5 ha sido todo un acontecimiento mediático. No sólo las redes sociales se han hecho eco del lanzamiento de la nueva consola de Sony, también los telediarios de los canales ..."
-    },
-    {
-        "id": 2,
-        "name": "Videojuegos",
-        "tittle": "El juicio a Ciberpunk 2077",
-        "image": "src/assets/img/judgecyber.jpg",
-        "date": "Noviembre",
-        "content": "No es casualidad que hayamos utilizado como portada para este artículo especial la misma imagen con la que CD Projekt RED anunció que estaba trabajando en un nuevo y prometedor videojuego de ambientación futurista. Un ..."
-    },
-    {
-        "id": 3,
-        "name": "Retro",
-        "tittle": "Toy Commander",
-        "image": "src/assets/img/toy.jpg",
-        "date": "Octubre",
-        "content": "Imagina que un buen día tus juguetes se hartan por lo mal que los has tratado y deciden amotinarse. El líder de esta rebelión, el gran oso de peluche Hugolin, reclama el título de Toy ..."
-    },
-    {
-        "id": 4,
-        "name": "Análisis",
-        "tittle": "Análisis Assassin's Creed Valhalla",
-        "image": "src/assets/img/assassin.jpg",
-        "date": "Diciembre",
-        "content": "Los vikingos, moradores del norte de Europa en el siglo IX, formaron uno de los pueblos más fascinantes y misteriosos del mundo antiguo. Todavía conocemos poco de este pueblo..."
-    },
-    {
-        "id": 5,
-        "name": "Videojuegos",
-        "tittle": "Toy Commander",
-        "image": "src/assets/img/toy.jpg",
-        "date": "Octubre",
-        "content": "Imagina que un buen día tus juguetes se hartan por lo mal que los has tratado y deciden amotinarse. El líder de esta rebelión, el gran oso de peluche Hugolin, reclama el título de Toy ..."
-    },
-    {
-        "id": 6,
-        "name": "Especiales",
-        "tittle": "Toy Commander",
-        "image": "src/assets/img/toy.jpg",
-        "date": "Octubre",
-        "content": "Imagina que un buen día tus juguetes se hartan por lo mal que los has tratado y deciden amotinarse. El líder de esta rebelión, el gran oso de peluche Hugolin, reclama el título de Toy ..."
-    }]
+    "highPosts": [
+        {
+            "id": 1,
+            "name": "Especiales",
+            "tittle": "Consolas de nueva generación",
+            "image": "src/assets/img/newgeneration.png",
+            "date": "Diciembre",
+            "content": "La salida al mercado de PS5 ha sido todo un acontecimiento mediático. No sólo las redes sociales se han hecho eco del lanzamiento de la nueva consola de Sony, también los telediarios de los canales ...",
+            "author": "Zack"
+        },
+        {
+            "id": 2,
+            "name": "Videojuegos",
+            "tittle": "El juicio a Ciberpunk 2077",
+            "image": "src/assets/img/judgecyber.jpg",
+            "date": "Noviembre",
+            "content": "No es casualidad que hayamos utilizado como portada para este artículo especial la misma imagen con la que CD Projekt RED anunció que estaba trabajando en un nuevo y prometedor videojuego de ambientación futurista. Un ...",
+            "author": "Jess"
 
+        },
+        {
+            "id": 3,
+            "name": "Retro",
+            "tittle": "Toy Commander",
+            "image": "src/assets/img/toy.jpg",
+            "date": "Octubre",
+            "content": "Imagina que un buen día tus juguetes se hartan por lo mal que los has tratado y deciden amotinarse. El líder de esta rebelión, el gran oso de peluche Hugolin, reclama el título de Toy ...",
+            "author": "Logan"
+
+        },
+        {
+            "id": 4,
+            "name": "Análisis",
+            "tittle": "Análisis Assassin's Creed Valhalla",
+            "image": "src/assets/img/assassin.jpg",
+            "date": "Diciembre",
+            "content": "Los vikingos, moradores del norte de Europa en el siglo IX, formaron uno de los pueblos más fascinantes y misteriosos del mundo antiguo. Todavía conocemos poco de este pueblo...",
+            "author": "Beth"
+
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "name": "Especiales",
+            "tittle": "¿Qué Playstation tuvo el mejor catálago de lanzamiento?",
+            "image": "src/assets/img/lanzamiento.jpg",
+            "date": "Noviembre",
+            "content": "Hace poco os contábamos cuál había sido -a nuestro juicio- el mejor catálogo de todas las Xbox por el lanzamiento de Series S/X. Y como a Sony no le gusta perderse una fiesta y el ...",
+            "author": "Zack"
+
+        },
+        {
+            "id": 2,
+            "name": "Videojuegos",
+            "tittle": "Ghost of Tsushima es el goty de los jugadores",
+            "image": "src/assets/img/goty.jpg",
+            "date": "Diciembre",
+            "content": "Los jugadores escogen a Ghost of Tsushima como juego del año en la votación organizada por The Game Awards. En los últimos días era posible realizar la votación a través de la web oficial por ...",
+            "author": "Logan"
+
+        },
+        {
+            "id": 3,
+            "name": "Retro",
+            "tittle": "Resident Evil Code Veronica",
+            "image": "src/assets/img/code.jpg",
+            "date": "Octubre",
+            "content": "Cuando hablamos de Resident Evil, una de las sagas de Capcom por excelencia, afloran recuerdos asociados a entregas muy concretas. Se agolpan en la mente momentos inolvidables. Resident Evil 2, seguido de su primera entrega ...",
+            "author": "Logan"
+
+        },
+        {
+            "id": 4,
+            "name": "Análisis",
+            "tittle": "Análisis Super Mario 3D All-Stars",
+            "image": "src/assets/img/allstar.jpeg",
+            "date": "Octubre",
+            "content": "Super Mario no necesita estrellas ni soles para brillar, lo hace por si mismo y así lo lleva demostrando 35 años. Y para… ¿celebrarlo?… Nintendo nos ha dado por sorpresa Super Mario 3D All-Stars para ...",
+            "author": "Beth"
+
+        },
+        {
+            "id": 5,
+            "name": "Videojuegos",
+            "tittle": "Demon's Souls Remake 5 minutos de gameplay",
+            "image": "src/assets/img/demon.jpg",
+            "date": "Octubre",
+            "content": "Bluepoint y Japan Studio han presentado recientemente un nuevo gameplay de Demon’s Souls Remake para PS5. En el remake de Demon’s Souls regresarás al reino de Boletaria, un lugar plagado de niebla. Aquí, la muerte no ...",
+            "author": "Jess"
+
+        },
+        {
+            "id": 6,
+            "name": "Especiales",
+            "tittle": "El Búnker: Solo puedes escoger una consola",
+            "image": "src/assets/img/bunker.jpg",
+            "date": "Septiembre",
+            "content": "No queda tiempo, el mundo que conocemos se acerca a su fin. Has preparado todo lo necesario para pasar una larga temporada bajo tierra, a salvo dentro un búnker. Ha llegado el momento de escoger ...",
+            "author": "Zack"
+
+        }
+    ]
 }
