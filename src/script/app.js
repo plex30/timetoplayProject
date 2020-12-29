@@ -50,13 +50,13 @@ const createNav = ()=>{
     a$$.classList.add('a-nav');
 
     if (i == 0) {
-        a$$.textContent = 'New';
+        a$$.textContent = 'Videojuegos';
     }else if (i == 1) {
-        a$$.textContent = 'Special'
+        a$$.textContent = 'Especiales'
     } else if(i == 2){
         a$$.textContent = 'Retro'
     }else{
-        a$$.textContent = 'Contacto'
+        a$$.textContent = 'Analisis'
     }
     li$$.appendChild(a$$);
     ul$$.appendChild(li$$);
@@ -105,7 +105,9 @@ const highPost = ()=>{
     const main$$ = document.querySelector('main');
     const divMain$$ = document.createElement('div');
     divMain$$.classList.add('highPost');
-    fetch('http://localhost:3000/highPosts').then(res => res.json()).then(dataPost =>{
+
+    callData('highPosts').then(dataPost =>{
+        
         for (const post of dataPost) {
             const divPost$$ = document.createElement('div');
             divPost$$.classList.add('item-post');
@@ -132,8 +134,10 @@ const highPost = ()=>{
         }
         
         main$$.appendChild(divMain$$);
-    
     })
+    
+    
+    
 }
 
 const cardPost = ()=>{
@@ -217,4 +221,15 @@ function insertAfter(e,i){
     } else { 
         e.parentNode.appendChild(i); 
     }
+}
+
+const callData = async (type)=>{
+    try {
+        const res = await fetch('http://localhost:3000/' + type);
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        return console.warn(error);
+    }
+    
 }

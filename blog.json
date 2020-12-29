@@ -66,16 +66,16 @@
         "content": "Los vikingos, moradores del norte de Europa en el siglo IX, formaron uno de los pueblos más fascinantes y misteriosos del mundo antiguo. Todavía conocemos poco de este pueblo..."
     },
     {
-        "id": 3,
-        "name": "Retro",
+        "id": 5,
+        "name": "Videojuegos",
         "tittle": "Toy Commander",
         "image": "src/assets/img/toy.jpg",
         "date": "Octubre",
         "content": "Imagina que un buen día tus juguetes se hartan por lo mal que los has tratado y deciden amotinarse. El líder de esta rebelión, el gran oso de peluche Hugolin, reclama el título de Toy ..."
     },
     {
-        "id": 3,
-        "name": "Retro",
+        "id": 6,
+        "name": "Especiales",
         "tittle": "Toy Commander",
         "image": "src/assets/img/toy.jpg",
         "date": "Octubre",
