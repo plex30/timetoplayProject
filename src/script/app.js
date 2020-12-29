@@ -19,6 +19,8 @@ const showContent = ()=>{
     const main$$ = document.createElement('main');
     document.body.appendChild(main$$);
     sliderCenter();
+    highPost();
+    cardPost();
 }
 
 const showFooter = ()=>{
@@ -86,7 +88,133 @@ const sliderCenter = ()=>{
     divMain$$.setAttribute('data-bs-ride', 'carousel')
     const divInner$$ = document.createElement('div');
     divInner$$.classList.add('carousel-inner');
-    divInner$$.innerHTML = '<div class="carousel-item active"><img src="/src/assets/img/mario.png" class="d-block w-100" alt="..."></div><div class="carousel-item"><img src="/src/assets/img/Cyberpunk.jpg" class="d-block w-100" alt="..."></div><div class="carousel-item"><img src="/src/assets/img/ff7.jpg" class="d-block w-100" alt="..."></div>'
+    divInner$$.innerHTML = `<div class="carousel-item active">
+    <img src="/src/assets/img/mario.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+    <img src="/src/assets/img/Cyberpunk.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+    <img src="/src/assets/img/ff7.jpg" class="d-block w-100" alt="...">
+    </div>`;
     divMain$$.appendChild(divInner$$);
     main$$.appendChild(divMain$$);
+}
+
+const highPost = ()=>{
+    const main$$ = document.querySelector('main');
+    const divMain$$ = document.createElement('div');
+    divMain$$.classList.add('highPost');
+    fetch('http://localhost:3000/highPosts').then(res => res.json()).then(dataPost =>{
+        for (const post of dataPost) {
+            const divPost$$ = document.createElement('div');
+            divPost$$.classList.add('item-post');
+            const namePost = document.createElement('h4');
+            namePost.textContent = post.name;
+            const tittlePost = document.createElement('h1');
+            tittlePost.textContent = post.tittle;
+            const pDate = document.createElement('p');
+            pDate.textContent = post.date
+            const pContent = document.createElement('p');
+            pContent.textContent = post.content
+            const imgPost = document.createElement('img');
+            imgPost.setAttribute('src', post.image);
+            const aPost = document.createElement('a');
+            aPost.setAttribute('href', '#');
+            aPost.textContent = 'Seguir leyendo'
+            divPost$$.appendChild(namePost);
+            divPost$$.appendChild(tittlePost);
+            divPost$$.appendChild(pDate);
+            divPost$$.appendChild(pContent);
+            divPost$$.appendChild(aPost);
+            divPost$$.appendChild(imgPost);
+            divMain$$.appendChild(divPost$$);
+        }
+        
+        main$$.appendChild(divMain$$);
+    
+    })
+}
+
+const cardPost = ()=>{
+    const main$$ = document.querySelector('main');
+    const divMain$$ = document.createElement('div');
+    divMain$$.classList.add('card-post');
+    divMain$$.innerHTML = `
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>`;
+  /* main$$.appendChild(divMain$$); */
+  insertAfter(main$$, divMain$$);
+}
+
+function insertAfter(e,i){ 
+    if(e.nextSibling){ 
+        e.parentNode.insertBefore(i,e.nextSibling); 
+    } else { 
+        e.parentNode.appendChild(i); 
+    }
 }

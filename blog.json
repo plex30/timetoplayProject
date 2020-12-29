@@ -1,0 +1,85 @@
+{
+    "highPosts":[
+{
+    "id": 1,
+    "name": "Especiales",
+    "tittle": "Consolas de nueva generación",
+    "image": "src/assets/img/newgeneration.png",
+    "date": "Diciembre",
+    "content": "La salida al mercado de PS5 ha sido todo un acontecimiento mediático. No sólo las redes sociales se han hecho eco del lanzamiento de la nueva consola de Sony, también los telediarios de los canales ..."
+},
+{
+    "id": 2,
+    "name": "Videojuegos",
+    "tittle": "El juicio a Ciberpunk 2077",
+    "image": "src/assets/img/judgecyber.jpg",
+    "date": "Noviembre",
+    "content": "No es casualidad que hayamos utilizado como portada para este artículo especial la misma imagen con la que CD Projekt RED anunció que estaba trabajando en un nuevo y prometedor videojuego de ambientación futurista. Un ..."
+},
+{
+    "id": 3,
+    "name": "Retro",
+    "tittle": "Toy Commander",
+    "image": "src/assets/img/toy.jpg",
+    "date": "Octubre",
+    "content": "Imagina que un buen día tus juguetes se hartan por lo mal que los has tratado y deciden amotinarse. El líder de esta rebelión, el gran oso de peluche Hugolin, reclama el título de Toy ..."
+},
+{
+    "id": 4,
+    "name": "Análisis",
+    "tittle": "Análisis Assassin's Creed Valhalla",
+    "image": "src/assets/img/assassin.jpg",
+    "date": "Diciembre",
+    "content": "Los vikingos, moradores del norte de Europa en el siglo IX, formaron uno de los pueblos más fascinantes y misteriosos del mundo antiguo. Todavía conocemos poco de este pueblo..."
+}],
+    "posts":[
+    {
+        "id": 1,
+        "name": "Especiales",
+        "tittle": "Consolas de nueva generación",
+        "image": "src/assets/img/newgeneration.png",
+        "date": "Diciembre",
+        "content": "La salida al mercado de PS5 ha sido todo un acontecimiento mediático. No sólo las redes sociales se han hecho eco del lanzamiento de la nueva consola de Sony, también los telediarios de los canales ..."
+    },
+    {
+        "id": 2,
+        "name": "Videojuegos",
+        "tittle": "El juicio a Ciberpunk 2077",
+        "image": "src/assets/img/judgecyber.jpg",
+        "date": "Noviembre",
+        "content": "No es casualidad que hayamos utilizado como portada para este artículo especial la misma imagen con la que CD Projekt RED anunció que estaba trabajando en un nuevo y prometedor videojuego de ambientación futurista. Un ..."
+    },
+    {
+        "id": 3,
+        "name": "Retro",
+        "tittle": "Toy Commander",
+        "image": "src/assets/img/toy.jpg",
+        "date": "Octubre",
+        "content": "Imagina que un buen día tus juguetes se hartan por lo mal que los has tratado y deciden amotinarse. El líder de esta rebelión, el gran oso de peluche Hugolin, reclama el título de Toy ..."
+    },
+    {
+        "id": 4,
+        "name": "Análisis",
+        "tittle": "Análisis Assassin's Creed Valhalla",
+        "image": "src/assets/img/assassin.jpg",
+        "date": "Diciembre",
+        "content": "Los vikingos, moradores del norte de Europa en el siglo IX, formaron uno de los pueblos más fascinantes y misteriosos del mundo antiguo. Todavía conocemos poco de este pueblo..."
+    },
+    {
+        "id": 3,
+        "name": "Retro",
+        "tittle": "Toy Commander",
+        "image": "src/assets/img/toy.jpg",
+        "date": "Octubre",
+        "content": "Imagina que un buen día tus juguetes se hartan por lo mal que los has tratado y deciden amotinarse. El líder de esta rebelión, el gran oso de peluche Hugolin, reclama el título de Toy ..."
+    },
+    {
+        "id": 3,
+        "name": "Retro",
+        "tittle": "Toy Commander",
+        "image": "src/assets/img/toy.jpg",
+        "date": "Octubre",
+        "content": "Imagina que un buen día tus juguetes se hartan por lo mal que los has tratado y deciden amotinarse. El líder de esta rebelión, el gran oso de peluche Hugolin, reclama el título de Toy ..."
+    }]
+
+}
