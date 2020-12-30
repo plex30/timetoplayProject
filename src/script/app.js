@@ -2,6 +2,7 @@ window.onload = ()=>{
     showHeader();
     showContent();
     showFooter();
+    actionBurguer();
     
 }
 
@@ -10,12 +11,12 @@ const showHeader = ()=>{
     head$$.classList.add('header-main');
     document.body.appendChild(head$$);
     const nav$$ = document.createElement('nav');
-    nav$$.classList.add('navbar')
+    nav$$.classList.add('nav-bar')
     head$$.appendChild(nav$$);
-    creatLogo();
+    createLogo();
     createNav();
     navBurguer();
-    createSearch();
+    
 }
 
 const showContent = ()=>{
@@ -34,11 +35,11 @@ const showFooter = ()=>{
 
 
 
-const creatLogo = ()=>{
+const createLogo = ()=>{
     const nav$$ = document.querySelector('nav');
     const h1$$ = document.createElement('h1');
     h1$$.classList.add('logo')
-    h1$$.textContent = 'Time To Play';
+    h1$$.innerHTML = 'Time To Play';
     nav$$.appendChild(h1$$);   
 }
 
@@ -69,16 +70,27 @@ const createNav = ()=>{
     }
     container$$.appendChild(ul$$);
     nav$$.appendChild(container$$);
+    
 }
 
 const navBurguer = ()=>{
   const nav$$ = document.querySelector('nav');
   const container$$ = document.createElement('div');
   container$$.classList.add('container-collapse');
-  const spanActive$$ = document.createElement('span');
-  spanActive$$.classList.add('active');
-  container$$.appendChild(spanActive$$);
+  const spanActiveOne$$ = document.createElement('span');
+  const spanActiveTwo$$ = document.createElement('span');
+  const spanActiveThr$$ = document.createElement('span');
+  container$$.appendChild(spanActiveOne$$);
+  container$$.appendChild(spanActiveTwo$$);
+  container$$.appendChild(spanActiveThr$$);
   nav$$.appendChild(container$$);
+}
+
+const actionBurguer = ()=>{
+  const span$$ = document.querySelector('.container-collapse');
+  span$$.addEventListener('click', ()=>{
+    span$$.classList.toggle('open');
+  })
 }
 
 const createSearch = ()=>{
@@ -131,21 +143,14 @@ const highPost = ()=>{
             namePost.textContent = post.name;
             const tittlePost = document.createElement('h1');
             tittlePost.textContent = post.tittle;
-            const pDate = document.createElement('p');
-            pDate.textContent = post.date
-            const pContent = document.createElement('p');
-            pContent.textContent = post.content
             const imgPost = document.createElement('img');
             imgPost.setAttribute('src', post.image);
             const aPost = document.createElement('a');
             aPost.setAttribute('href', '#');
-            aPost.textContent = 'Seguir leyendo'
+            imgPost.appendChild(aPost);
+            divPost$$.appendChild(imgPost);
             divPost$$.appendChild(namePost);
             divPost$$.appendChild(tittlePost);
-            divPost$$.appendChild(pDate);
-            divPost$$.appendChild(pContent);
-            divPost$$.appendChild(aPost);
-            divPost$$.appendChild(imgPost);
             divMain$$.appendChild(divPost$$);
         }
         
@@ -158,6 +163,7 @@ const highPost = ()=>{
 
 const cardPost = ()=>{
     const main$$ = document.querySelector('main');
+    console.log(main$$)
     const divMain$$ = document.createElement('div');
     divMain$$.classList.add('card-post');
 
@@ -192,88 +198,18 @@ const cardPost = ()=>{
             card$$.appendChild(cardFooter$$);
             divMain$$.appendChild(card$$);
         }
-        insertAfter(main$$, divMain$$);
+       main$$.appendChild(divMain$$);
     })
-    
 
-    /* divMain$$.innerHTML = `
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>`; */
-  /* main$$.appendChild(divMain$$); */
-  
 }
 
-function insertAfter(e,i){ 
+/* function insertAfter(e,i){ 
     if(e.nextSibling){ 
         e.parentNode.insertBefore(i,e.nextSibling); 
     } else { 
         e.parentNode.appendChild(i); 
     }
-}
+} */
 
 const callData = async (type)=>{
     try {

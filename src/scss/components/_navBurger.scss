@@ -1,34 +1,49 @@
-.container {
-    margin-top: 140px;
-    transform: scale(3);
-  }
-  
-  span {
-    @include span(0.4);
-  }
-  
-  .active {
-    background: $line-color;
-    width: $line-width;
-    height: $line-height;
-    margin-top: 4px;
-    @include center;
-  }
-  
-  .cross {
-    background: $line-color;
-    width: $line-width;
-    height: $line-height;
-    margin-top: 4px;
-    display: block;
-    @include center;
-  }
-  
-  .cross:nth-of-type(1) {
-    transform: rotate(45deg);
-  }
-  
-  .cross:nth-of-type(2) {
-    transform: rotate(-45deg);
-    margin-top: -3px;
-  }
+.container-collapse {
+  width: 45px;
+  height: 30px;
+  position: relative;
+  margin: 3rem auto;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+.container-collapse span{
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 100%;
+  background: white;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.container-collapse span:nth-child(1) {
+  top: 0px;
+}
+
+.container-collapse span:nth-child(2) {
+  top: 18px;
+}
+
+.container-collapse span:nth-child(3) {
+  top: 36px;
+}
+
+.container-collapse.open span:nth-child(1) {
+  top: 18px;
+  transform: rotate(135deg);
+}
+
+.container-collapse.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.container-collapse.open span:nth-child(3) {
+  top: 18px;
+  transform: rotate(-135deg);
+}

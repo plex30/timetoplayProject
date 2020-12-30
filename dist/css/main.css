@@ -9,4 +9,129 @@ html, body {
   padding: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'Slant';
+  src: url(/src/assets/fonts/SLANT.TTF);
+}
+
+.header-main {
+  background: #252525;
+}
+
+.header-main .nav-bar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.header-main .nav-bar .logo {
+  font-family: Slant;
+  color: white;
+  margin: 1rem auto;
+  margin-top: 3rem;
+  font-size: 3rem;
+}
+
+.header-main .nav-bar .container-full {
+  display: none;
+}
+
+.container-collapse {
+  width: 45px;
+  height: 30px;
+  position: relative;
+  margin: 3rem auto;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+.container-collapse span {
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 100%;
+  background: white;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.container-collapse span:nth-child(1) {
+  top: 0px;
+}
+
+.container-collapse span:nth-child(2) {
+  top: 18px;
+}
+
+.container-collapse span:nth-child(3) {
+  top: 36px;
+}
+
+.container-collapse.open span:nth-child(1) {
+  top: 18px;
+  transform: rotate(135deg);
+}
+
+.container-collapse.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.container-collapse.open span:nth-child(3) {
+  top: 18px;
+  transform: rotate(-135deg);
+}
+
+main .carousel {
+  width: 96%;
+  margin: 0.6rem;
+}
+
+main .carousel .carousel-inner .carousel-item img {
+  width: 20rem;
+  height: 18rem;
+}
+
+.highPost .item-post {
+  background: #4e4e4e;
+  margin: 0.6rem;
+  color: white;
+  width: 96%;
+}
+
+.highPost .item-post h4 {
+  background-color: #ff3838;
+  width: auto;
+  position: absolute;
+  margin-left: 0.5rem;
+  margin-top: -6rem;
+  text-shadow: 2px 2px 3px black;
+}
+
+.highPost .item-post h1 {
+  font-size: 1.6rem;
+  margin-left: 0.5rem;
+  margin-top: -4rem;
+  position: absolute;
+  text-shadow: 2px 2px 3px black;
+}
+
+.highPost .item-post img {
+  width: 100%;
+  height: 18rem;
+  border-radius: 4px;
+}
+
+.card-post {
+  width: 96%;
+  margin: 0.6rem;
+}
+
+.card-post .card {
+  margin-bottom: 0.6rem;
+}
 /*# sourceMappingURL=main.css.map */
