@@ -1,8 +1,24 @@
 .card-post{
-    width: 96%;
-    margin: 0.6rem;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #2B2B2B;
 
     .card{
-        margin-bottom: 0.6rem;
+        border: 1px solid orange;
+        width: 90%;
+        margin: 1.4rem;
+        
+        .card-body{
+
+            a{
+                text-decoration: none;
+                color:orange;
+                font-weight: bolder;
+                border: 1px solid orange;
+                padding: 0.3rem;
+                float: right;
+            }
+        }
     }
 }

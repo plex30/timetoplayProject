@@ -11,12 +11,13 @@ html, body {
 }
 
 @font-face {
-  font-family: 'Slant';
-  src: url(/src/assets/fonts/SLANT.TTF);
+  font-family: 'Space';
+  src: url(/src/assets/fonts/spaceage.ttf);
 }
 
 .header-main {
-  background: #252525;
+  background: white;
+  border-bottom: 1px solid orange;
 }
 
 .header-main .nav-bar {
@@ -25,20 +26,67 @@ html, body {
 }
 
 .header-main .nav-bar .logo {
-  font-family: Slant;
-  color: white;
+  font-family: 'Space';
+  color: black;
   margin: 1rem auto;
-  margin-top: 3rem;
-  font-size: 3rem;
+  margin-top: 1rem;
+  font-size: 2.3rem;
+  text-align: center;
 }
 
-.header-main .nav-bar .container-full {
+.header-main .nav-bar .logo span {
+  padding-top: -1.3rem;
+}
+
+.header-main .nav-bar .logo .a-span {
+  color: orange;
+}
+
+.header-main .nav-bar .nav-full {
   display: none;
 }
 
+.header-main .nav-bar .nav-collapse {
+  visibility: hidden;
+}
+
+.header-main .nav-bar .nav-collapse ul {
+  margin-top: 15rem;
+  margin-left: -14rem;
+  position: absolute;
+}
+
+.header-main .nav-bar .nav-collapse ul li {
+  list-style: none;
+  text-align: center;
+  margin: 1.5rem;
+}
+
+.header-main .nav-bar .nav-collapse ul li a {
+  text-decoration: none;
+  color: orange;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.header-main .nav-bar .nav-collapse ul li a:hover {
+  color: black;
+  transition: 1s;
+}
+
+footer {
+  text-align: center;
+  border: 1px solid orange;
+}
+
+footer p {
+  color: orange;
+  margin: 0.3rem;
+}
+
 .container-collapse {
-  width: 45px;
-  height: 30px;
+  width: 35px;
+  height: 5px;
   position: relative;
   margin: 3rem auto;
   transform: rotate(0deg);
@@ -49,9 +97,9 @@ html, body {
 .container-collapse span {
   display: block;
   position: absolute;
-  height: 9px;
-  width: 100%;
-  background: white;
+  height: 4px;
+  width: 80%;
+  background: orange;
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -64,15 +112,15 @@ html, body {
 }
 
 .container-collapse span:nth-child(2) {
-  top: 18px;
+  top: 8px;
 }
 
 .container-collapse span:nth-child(3) {
-  top: 36px;
+  top: 16px;
 }
 
 .container-collapse.open span:nth-child(1) {
-  top: 18px;
+  top: 10px;
   transform: rotate(135deg);
 }
 
@@ -82,7 +130,7 @@ html, body {
 }
 
 .container-collapse.open span:nth-child(3) {
-  top: 18px;
+  top: 10px;
   transform: rotate(-135deg);
 }
 
@@ -103,8 +151,15 @@ main .carousel .carousel-inner .carousel-item img {
   width: 96%;
 }
 
+.highPost .item-post:hover {
+  animation: pulse;
+  /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 0.6s;
+  /* don't forget to set a duration! */
+}
+
 .highPost .item-post h4 {
-  background-color: #ff3838;
+  background-color: orange;
   width: auto;
   position: absolute;
   margin-left: 0.5rem;
@@ -127,11 +182,140 @@ main .carousel .carousel-inner .carousel-item img {
 }
 
 .card-post {
-  width: 96%;
-  margin: 0.6rem;
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #2B2B2B;
 }
 
 .card-post .card {
-  margin-bottom: 0.6rem;
+  border: 1px solid orange;
+  width: 90%;
+  margin: 1.4rem;
+}
+
+.card-post .card .card-body a {
+  text-decoration: none;
+  color: orange;
+  font-weight: bolder;
+  border: 1px solid orange;
+  padding: 0.3rem;
+  float: right;
+}
+
+.article-post .cont-lft h4 {
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  background-color: orange;
+  width: 25%;
+  color: white;
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+}
+
+.article-post .cont-lft img {
+  width: 90%;
+  margin: 1rem;
+}
+
+.article-post .cont-lft h2 {
+  margin-left: 1rem;
+  font-size: 1.7rem;
+}
+
+.article-post .cont-lft p:nth-child(4) {
+  margin-left: 1rem;
+  color: #3B71E5;
+  font-size: 0.8rem;
+}
+
+.article-post .cont-lft p:nth-child(5) {
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+
+.article-post .cont-lft h5 {
+  margin-left: 1rem;
+  color: orange;
+}
+
+.article-post .cont-lft .new-message {
+  border: 1px solid gray;
+  margin: 1rem;
+  border-radius: 4px;
+  padding: 1rem;
+  background-color: #fffafa;
+}
+
+.article-post .cont-lft .new-message h3 {
+  font-size: 1.4rem;
+}
+
+.article-post .cont-lft .new-message input {
+  margin-bottom: 0.8rem;
+}
+
+.article-post .cont-lft .new-message button {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem 0.4rem 1rem;
+  border-radius: 5px;
+  margin-left: 4rem;
+  margin-top: -1rem;
+  font-size: 1.3rem;
+}
+
+.article-post .cont-lft .message {
+  border: 1px solid gray;
+  margin: 1.4rem;
+  border-radius: 4px;
+  padding: 1rem;
+  background-color: #fffafa;
+}
+
+.article-post .cont-lft .message h4 {
+  background-color: white;
+  color: orange;
+  font-size: 1.5rem;
+}
+
+.article-post .cont-lft .message h5 {
+  font-size: 1rem;
+  color: black;
+}
+
+.article-post .cont-lft .message p:nth-child(3) {
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  color: #3B71E5;
+}
+
+.article-post .cont-lft .message p:nth-child(4) {
+  font-size: 1.3rem;
+  color: black;
+}
+
+.cont-rgt h3, .cont-rgt h2 {
+  background-color: black;
+  color: orange;
+  text-align: center;
+  margin: 1rem;
+}
+
+.cont-rgt p {
+  margin: 1rem;
+}
+
+.cont-rgt ul {
+  text-align: center;
+  margin-right: 2.8rem;
+}
+
+.cont-rgt ul li {
+  list-style: none;
+}
+
+.cont-rgt ul li a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=main.css.map */

@@ -97,5 +97,17 @@
             "author": "Zack"
 
         }
-    ]
+    ],
+    "contentPosts": [
+        {
+            "id": 1,
+            "name": "Especiales",
+            "tittle": "Consolas de nueva generación",
+            "image": "src/assets/img/newgeneration.jpg",
+            "date": "16 de Noviembre de 2020",
+            "content": "La salida al mercado de PS5 ha sido todo un acontecimiento mediático.<br/> No sólo las redes sociales se han hecho eco del lanzamiento de la nueva consola de Sony, también los telediarios de los canales principales de televisión han contribuido en la publicidad de esta nueva generación para suscitar una demanda que parece de plástico.<br/><br/>En el caso de las redes sociales, el deseo por adquirir la nueva consola de Sony se hace patente en innumerables entradas y fotografías donde alegres y afortunados jugadores comparten comentarios sobre las virtudes de la máquina y aparecen abrazados a ésta como si se tratara de un nuevo miembro de la familia.<br/><br/>Por otro lado, los informativos hablan de la novena generación a través de escuetas noticias en las cuales la última consola de Microsoft actúa la mayoría de las veces como comparsa incómoda.<br/> Todo este revuelo nos lleva a cuestionar si es realmente tan importante y necesario este cambio de generación. <br/>Llegados a este punto, al igual que nos ocurrió con Xbox One y PS4, nos preguntamos:¿Merece realmente la pena adquirir una consola de nueva generación recién salida al mercado?<br/>Nosotros lo tenemos claro y no podemos ser más tajantes: la respuesta es no. Los apabullantes datos técnicos, la promesa de un futuro repleto de lanzamientos aún sin fecha, la retrocompatibilidad, el Game Pass y un remake idolatrado que apela a la nostalgia, no son suficientes motivos.<br/> Son interesantes razones secundarias, eso sí, pero no el aliciente principal en forma de un catálogo exclusivo que nos sirva de adelanto para conocer qué nos deparará esta nueva etapa.<br/> De momento, no hemos visto ningún juego innovador y único que despierte el suficiente interés para justificar la compra de un sistema moderno. Solo tenemos un puñado de juegos intergeneracionales que se benefician de la nueva tecnología moderna, pero no pueden considerarse como exponentes de un cambio generacional.De hecho, la ausencia de juegos exclusivos next gen deja a la vista lo peor de esta situación: especulación, noticias constantes sobre la falta de stock de las máquinas y el consecuente cartel de producto agotado.<br/> Este desabastecimiento de unidades es presuntamente una estrategia comercial que consiste en poner en venta una menor cantidad de unidades para generar nerviosismo, ansia por comprar, y miedo a quedarse sin la consola el día de su lanzamiento.<br/><br/> Por absurdo que parezca querer ser el primero en tener un aparato de alta tecnología de 500€, como adorno o para jugar a juegos de una o dos generaciones atrás, la estrategia funciona a las mil maravillas.Todo esto ya lo hemos vivido.<br/><br/> Esta novena generación empieza exactamente igual que la anterior. La nueva potencia tecnológica como cortina reluciente para esconder una preocupante carencia creativa, con respecto a los videojuegos que llevamos arrastrando mucho tiempo. PS4 y Xbox ONE hicieron bandera con los 1080p y 60fps,<br> mientras que Xbox Series X y PS5 hacen lo propio con el Ray Tracing y los discos de carga rápida SD.Alta tecnología y rendimiento increíble son las promesas, pero como decía el eslogan de aquel anuncio de neumáticos, “La potencia sin control no sirve de nada“. Si cambiamos “control” por videojuegos, obtenemos la conclusión a la que llegamos con respecto a las consolas de nueva generación.",
+            "author": "Zack"
+
+        }
+        ]
 }

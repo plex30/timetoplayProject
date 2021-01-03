@@ -1,6 +1,6 @@
 .container-collapse {
-  width: 45px;
-  height: 30px;
+  width: 35px;
+  height: 5px;
   position: relative;
   margin: 3rem auto;
   transform: rotate(0deg);
@@ -11,9 +11,9 @@
 .container-collapse span{
   display: block;
   position: absolute;
-  height: 9px;
-  width: 100%;
-  background: white;
+  height: 4px;
+  width: 80%;
+  background: orange;
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -26,15 +26,15 @@
 }
 
 .container-collapse span:nth-child(2) {
-  top: 18px;
+  top: 8px;
 }
 
 .container-collapse span:nth-child(3) {
-  top: 36px;
+  top: 16px;
 }
 
 .container-collapse.open span:nth-child(1) {
-  top: 18px;
+  top: 10px;
   transform: rotate(135deg);
 }
 
@@ -44,6 +44,6 @@
 }
 
 .container-collapse.open span:nth-child(3) {
-  top: 18px;
+  top: 10px;
   transform: rotate(-135deg);
 }

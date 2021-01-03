@@ -4,6 +4,7 @@ window.onload = ()=>{
     showFooter();
     actionBurguer();
     
+    
 }
 
 const showHeader = ()=>{
@@ -15,7 +16,7 @@ const showHeader = ()=>{
     head$$.appendChild(nav$$);
     createLogo();
     createNav();
-    navBurguer();
+    navBurguerIcon();
     
 }
 
@@ -30,6 +31,7 @@ const showContent = ()=>{
 const showFooter = ()=>{
     const footer$$ = document.createElement('footer');
     document.body.appendChild(footer$$);
+    createFooter();
 }
 
 
@@ -38,22 +40,28 @@ const showFooter = ()=>{
 const createLogo = ()=>{
     const nav$$ = document.querySelector('nav');
     const h1$$ = document.createElement('h1');
-    h1$$.classList.add('logo')
-    h1$$.innerHTML = 'Time To Play';
+    const span$$ = document.createElement('span');
+    h1$$.classList.add('logo');
+    h1$$.innerHTML = 'Time To<br>';
+    span$$.innerHTML= 'Pl<span class="a-span">a</span>y';
+    h1$$.appendChild(span$$);
     nav$$.appendChild(h1$$);   
 }
 
 const createNav = ()=>{
 
     const nav$$ = document.querySelector('nav');
-    const container$$ = document.createElement('div');
-    container$$.classList.add('container-full');
+    const containerfull$$ = document.createElement('div');
+    const containercollapse$$ = document.createElement('div');
+    containercollapse$$.classList.add('nav-collapse');
+    containerfull$$.classList.add('nav-full');
     const ul$$ = document.createElement('ul');
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
     const li$$ = document.createElement('li');
     const a$$ = document.createElement('a');
     a$$.classList.add('a-nav');
+    a$$.setAttribute('href', "#");
 
     if (i == 0) {
         a$$.textContent = 'Videojuegos';
@@ -61,19 +69,24 @@ const createNav = ()=>{
         a$$.textContent = 'Especiales'
     } else if(i == 2){
         a$$.textContent = 'Retro'
-    }else{
+    }else if(i == 3){
         a$$.textContent = 'Analisis'
+    }else{
+        a$$.textContent = 'Sign in'
     }
     li$$.appendChild(a$$);
     ul$$.appendChild(li$$);
         
     }
-    container$$.appendChild(ul$$);
-    nav$$.appendChild(container$$);
+    containerfull$$.appendChild(ul$$);
+    nav$$.appendChild(containerfull$$);
+    containercollapse$$.appendChild(ul$$);
+    nav$$.appendChild(containercollapse$$);
+
     
 }
 
-const navBurguer = ()=>{
+const navBurguerIcon = ()=>{
   const nav$$ = document.querySelector('nav');
   const container$$ = document.createElement('div');
   container$$.classList.add('container-collapse');
@@ -87,11 +100,22 @@ const navBurguer = ()=>{
 }
 
 const actionBurguer = ()=>{
-  const span$$ = document.querySelector('.container-collapse');
-  span$$.addEventListener('click', ()=>{
-    span$$.classList.toggle('open');
-  })
+  const container$$ = document.querySelector('.container-collapse');
+  const main$$ = document.querySelector('main');
+  const navCollap$$ = document.querySelector('.nav-collapse')
+  container$$.addEventListener('click', ()=>{
+    container$$.classList.toggle('open');
+    if (document.querySelector('.container-collapse.open')) {
+      main$$.style.visibility = 'hidden';
+      navCollap$$.style.visibility = 'visible';
+    }else if(container$$){
+        main$$.style.visibility = 'visible';
+        navCollap$$.style.visibility = 'hidden';
+    }
+  })  
 }
+
+
 
 const createSearch = ()=>{
     const nav$$ = document.querySelector('nav');
@@ -145,13 +169,16 @@ const highPost = ()=>{
             tittlePost.textContent = post.tittle;
             const imgPost = document.createElement('img');
             imgPost.setAttribute('src', post.image);
+            imgPost.classList.add('wow', 'bounceInUp')
             const aPost = document.createElement('a');
             aPost.setAttribute('href', '#');
+            imgPost.addEventListener('click', () => {resetMain(); showArticle(post)});
             imgPost.appendChild(aPost);
             divPost$$.appendChild(imgPost);
             divPost$$.appendChild(namePost);
             divPost$$.appendChild(tittlePost);
             divMain$$.appendChild(divPost$$);
+           
         }
         
         main$$.appendChild(divMain$$);
@@ -163,7 +190,6 @@ const highPost = ()=>{
 
 const cardPost = ()=>{
     const main$$ = document.querySelector('main');
-    console.log(main$$)
     const divMain$$ = document.createElement('div');
     divMain$$.classList.add('card-post');
 
@@ -201,6 +227,141 @@ const cardPost = ()=>{
        main$$.appendChild(divMain$$);
     })
 
+}
+
+const showArticle = (data)=>{
+
+    callData('contentPosts/'+data.id).then(post =>{
+
+        const main$$ = document.querySelector('main');
+        const divMain$$ = document.createElement('div');
+        divMain$$.classList.add('article-post');
+        const divlft$$ = document.createElement('div');
+        divlft$$.classList.add('cont-lft');
+        const divrgt$$ = document.createElement('div');
+        divrgt$$.classList.add('cont-rgt');
+        divMain$$.appendChild(divlft$$);
+        divMain$$.appendChild(divrgt$$);
+        
+        const h4$$ = document.createElement('h4');
+        h4$$.textContent = post.name;
+        const h2$$ = document.createElement('h2');
+        h2$$.textContent = post.tittle;
+        const pOne$$ = document.createElement('p');
+        pOne$$.textContent = post.date;
+        const h5$$ = document.createElement('h5');
+        h5$$.textContent = 'Escrito por: '+post.author;
+        const img$$ = document.createElement('img');
+        img$$.setAttribute('src', post.image);
+        const pTwo$$ = document.createElement('p'); 
+        pTwo$$.innerHTML = post.content;
+        divlft$$.appendChild(img$$);
+        divlft$$.appendChild(h4$$);
+        divlft$$.appendChild(h2$$);
+        divlft$$.appendChild(pOne$$);
+        divlft$$.appendChild(pTwo$$);
+        divlft$$.appendChild(h5$$);
+        divrgt$$.innerHTML = `<h3>Sobre Nosotros</h3><p>Blog dedicado a informar sobre las últimas noticias de videojuegos</p><h2>Archives</h2><ul><li><a href="#">Noviembre 2020</a></li><li><a href="#">Octubre 2020</a></li><li><a href="#">Septiembre 2020</a></li><li><a href="#">Agosto 2020</a></li><li><a href="#">Julio 2020</a></li><li><a href="#">Junio 2020</li></a><li><a href="#">Mayo 2020</a></li><li><a href="#">Abril 2020</a></li></ul>`;
+        divMain$$.appendChild(divrgt$$);
+        main$$.appendChild(divMain$$);
+        showNewMessage();
+        showMessage();
+    })
+    
+}
+
+
+const sendMessage = (name, message, mail)=>{
+
+    let date = new Date();
+    date.toLocaleDateString();
+
+       var db = new Dexie("Messagedb");
+          db.version(1).stores({
+              messages: 'name,mail,content, date'
+          });
+         
+          db.messages.put({name: name, mail: mail, content: message, date: date})  
+}
+
+const showMessage = ()=>{
+
+    var db = new Dexie("Messagedb");
+          db.version(1).stores({
+              messages: 'name,mail,content'
+          });
+    
+    const main$$ = document.querySelector('.cont-lft');
+    
+    db.messages.each(message =>{
+        const divMessage$$ = document.createElement('div');
+        divMessage$$.classList.add('message');
+        const nameh5$$ = document.createElement('h4');
+        nameh5$$.textContent = message.name;
+        const pdate$$ = document.createElement('p');
+        pdate$$.textContent = message.date;
+        const pone$$ = document.createElement('p');
+        pone$$.textContent = message.content;
+        const mail$$ = document.createElement('h5');
+        mail$$.textContent = message.mail;
+        divMessage$$.appendChild(nameh5$$);
+        divMessage$$.appendChild(mail$$);
+        divMessage$$.appendChild(pdate$$);
+        divMessage$$.appendChild(pone$$);
+        main$$.appendChild(divMessage$$);
+    })
+    
+    
+    
+    
+}
+
+const showNewMessage = ()=>{
+    const main$$ = document.querySelector('.cont-lft');
+    const divMessage$$ = document.createElement('div');
+    divMessage$$.classList.add('new-message')
+    const tittleh3$$ = document.createElement('h3');
+    tittleh3$$.textContent = 'Escribe un nuevo comentario';
+    const form$$ = document.createElement('form');
+    form$$.setAttribute('action', '#');
+    const textAre$$ = document.createElement('textarea');
+    textAre$$.setAttribute('placeholder', 'Escribe un comentario...')
+    const inputName$$ = document.createElement('input');
+    inputName$$.classList.add('inputName');
+    inputName$$.setAttribute('placeholder', 'Nombre');
+    const inputMail$$ = document.createElement('input');
+    inputMail$$.classList.add('inputMail');
+    inputMail$$.setAttribute('placeholder', 'Email');
+    const btnSend$$ = document.createElement('button');
+    btnSend$$.textContent = 'Enviar';
+    divMessage$$.appendChild(tittleh3$$);
+    form$$.appendChild(inputName$$);
+    form$$.appendChild(inputMail$$);
+    form$$.appendChild(textAre$$);
+    form$$.appendChild(btnSend$$);
+    divMessage$$.appendChild(form$$);
+    main$$.appendChild(divMessage$$)
+
+    btnSend$$.addEventListener('click', ()=>{sendMessage(inputName$$.value, textAre$$.value, inputMail$$.value); alert('Comentario enviado.')})
+}
+
+
+const createFooter = ()=>{
+    const foot$$ = document.querySelector('footer');
+    foot$$.innerHTML = `<p><Strong>Time to Play</Strong> Blog de videojuegos creado por Juan A. Cortés</p>`;
+
+}
+
+
+const resetInput = (name, mail)=>{
+    const divMessage$$ = document.querySelector('.new-message');
+    divMessage$$.innerHTML = '';
+
+}
+
+const resetMain = ()=>{
+    const main$$ = document.querySelector('main');
+    main$$.innerHTML = "";
 }
 
 /* function insertAfter(e,i){ 
