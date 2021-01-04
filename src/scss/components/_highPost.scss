@@ -1,7 +1,7 @@
 .highPost {
   .item-post {
-    background: rgb(78, 78, 78);
-    margin: 0.6rem;
+    width: 98%;
+    margin: 0.5rem;
     color: white;
 
     &:hover {
@@ -28,7 +28,7 @@
     }
 
     img {
-      width: 100%;
+      width: 98%;
       height: 18rem;
       border-radius: 4px;
     }

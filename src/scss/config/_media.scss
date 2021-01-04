@@ -1,27 +1,99 @@
-@include tablet{
-    .carousel.pointer-event {
-        width: 98%;
+@include tablet {
+
+    .highPost {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
     }
+
+    .highPost .item-post {
+        width: 48.17%;
+    }
+
+    .card-post {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+
+    }
+
+    .card-post .card {
+        width: 45.08%;
+        margin-left: 1.3rem;
+    }
+
+    .nav-collapse,
+    .container-collapse {
+        display: none;
+    }
+
+    .header-main .nav-bar .nav-full {
+        display: block;
+        margin-right: 3rem;
+        margin-top: 1.9rem;
+    }
+
+    .header-main .nav-bar .nav-full ul li {
+        display: inline-flex;
+        list-style: none;
+    }
+
+    .header-main .nav-bar .nav-full ul li a {
+        text-decoration: none;
+        color: orange;
+        font-size: 1.4rem;
+        margin: 0.7rem;
+    }
+
+    .header-main .nav-bar .nav-full ul li a:hover {
+        color: black;
+        transition: 1s;
+    }
+
+    input[type=button],
+    input[type=submit] {
+        margin-left: 12rem;
+    }
+
+    #icon {
+        margin-left: 16.5rem;
+    }
+
+    .formContent {
+        margin-left: 3rem;
+    }
+
+    .formContent #formFooter {
+        margin-left: -7rem;
+    }
+}
+
+@include desktop {
+    main .carousel{
+        width: 60%;
+        margin-left: 20rem;
+        margin-top: 3rem;
+    }
+    main .carousel .carousel-inner .carousel-item img{
+        height: 30rem;
+    }
+
     .highPost{
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-flow: row wrap;
-        flex-flow: row wrap;
+        margin-left: 4rem;
     }
 
-    .highPost .item-post{
-        width: 47%;
-    }
-
-    .card-post{
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-flow: row wrap;
-        flex-flow: row wrap;
+    .highPost .item-post {
+        width: 23.17%;
     }
 
     .card-post .card{
-        width: 44%;
-        justify-content: space-between;
+        width: 23%;
+        justify-content: center;
+    }
+
+    .logo{
+        padding-right: 45rem;
     }
 }

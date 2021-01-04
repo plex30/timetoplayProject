@@ -1,8 +1,6 @@
 @import 'config/variables';
-@import 'config/breakpoints';
-@import 'config/media';
-@import 'base/base';
 @import 'base/reset';
+@import 'base/base';
 @import 'layouts/header';
 @import 'layouts/contentMain';
 @import 'layouts/footer';
@@ -12,6 +10,8 @@
 @import 'components/posts';
 @import 'components/articlePost';
 @import 'components/signIn';
+@import 'config/breakpoints';
+@import 'config/media';
 
 
 

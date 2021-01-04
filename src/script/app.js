@@ -18,7 +18,8 @@ const showHeader = ()=>{
     nav$$.classList.add('nav-bar')
     head$$.appendChild(nav$$);
     createLogo();
-    createNav();
+    createNavFull();
+    createNavCollapse();
     navBurguerIcon();
     createSignIn();
     
@@ -51,13 +52,7 @@ const createLogo = ()=>{
     nav$$.appendChild(h1$$);   
 }
 
-const createNav = ()=>{
-
-    const nav$$ = document.querySelector('nav');
-    const containerfull$$ = document.createElement('div');
-    const containercollapse$$ = document.createElement('div');
-    containercollapse$$.classList.add('nav-collapse');
-    containerfull$$.classList.add('nav-full');
+const createListNav = ()=>{
     const ul$$ = document.createElement('ul');
 
     for (let i = 0; i < 5; i++) {
@@ -85,16 +80,33 @@ const createNav = ()=>{
             if (a$$.textContent == 'Sign in') {
                 a$$.classList.add('a-sign');
                 actionSignIn();
-                console.log(logIn())
             }
     
         })
     }
+
+    return ul$$;
+}
+
+const createNavFull = ()=>{
+    const nav$$ = document.querySelector('nav');
+    const containerfull$$ = document.createElement('div');
+    containerfull$$.classList.add('nav-full');
+    const ul$$ = createListNav();
     containerfull$$.appendChild(ul$$);
     nav$$.appendChild(containerfull$$);
+    
+    
+}
+
+const createNavCollapse = ()=>{
+    const nav$$ = document.querySelector('nav');
+    const containercollapse$$ = document.createElement('div');
+    containercollapse$$.classList.add('nav-collapse');
+    const ul$$ = createListNav();
     containercollapse$$.appendChild(ul$$);
     nav$$.appendChild(containercollapse$$);
-    
+
 }
 
 const navBurguerIcon = ()=>{
@@ -114,17 +126,20 @@ const actionBurguer = ()=>{
   const container$$ = document.querySelector('.container-collapse');
   const wrapper$$ = document.querySelector('.wrapper');
   const main$$ = document.querySelector('main');
-  const navCollap$$ = document.querySelector('.nav-collapse')
+  const navCollap$$ = document.querySelector('.nav-collapse');
+  const footer$$ = document.querySelector('footer');
   container$$.addEventListener('click', ()=>{
     container$$.classList.toggle('open');
     if (document.querySelector('.container-collapse.open')) {
-      main$$.style.visibility = 'hidden';
-      navCollap$$.style.visibility = 'visible';
+      main$$.style.display = 'none';
+      navCollap$$.style.display = 'block';
+      footer$$.style.display = 'none';
     }else if(container$$){
-        main$$.style.visibility = 'visible';
-        navCollap$$.style.visibility = 'hidden';
+        main$$.style.display = 'block';
+        navCollap$$.style.display = 'none';
         wrapper$$.classList.remove('close');
-        wrapper$$.style.visibility = 'hidden';
+        wrapper$$.style.display = 'none';
+        footer$$.style.display = 'block';
     }
   })  
 }
@@ -180,15 +195,20 @@ const createSignIn = ()=>{
 
 const actionSignIn = ()=>{
     const wrapper$$ = document.querySelector('.wrapper');
-    const navCollap$$ = document.querySelector('.nav-collapse')
-    
-      wrapper$$.classList.toggle('close');
-      if (document.querySelector('.wrapper.close')) {
-        wrapper$$.style.visibility = 'visible';
-        navCollap$$.style.visibility = 'hidden';
+    const navCollap$$ = document.querySelector('.nav-collapse');
+    const main$$ = document.querySelector('main');
+    const footer$$ = document.querySelector('footer');
+      wrapper$$.classList.toggle('open');
+      if (document.querySelector('.wrapper.open')) {
+        wrapper$$.style.display = 'block';
+        navCollap$$.style.display = 'none';
+        footer$$.style.display = 'none';
+        main$$.style.display = 'none';
       }else if(wrapper$$){
-          wrapper$$.style.visibility = 'hidden';
-          navCollap$$.style.visibility = 'hidden';
+          wrapper$$.style.display = 'none';
+          navCollap$$.style.display = 'none';
+          main$$.style.display = 'block';
+          footer$$.style.display = 'block'
       }
       
   }

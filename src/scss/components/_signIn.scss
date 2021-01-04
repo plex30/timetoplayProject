@@ -6,7 +6,7 @@
   
   .wrapper {
     position: absolute;
-    visibility: hidden;
+    display: none;
     align-items: center;
     width: 100%;
     min-height: 100%;
@@ -33,6 +33,7 @@
     background-color: #f6f6f6;
     border-top: 1px solid #dce8f1;
     padding: 25px;
+    margin-left: -3rem;
     text-align: center;
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
