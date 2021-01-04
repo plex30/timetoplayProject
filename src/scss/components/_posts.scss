@@ -2,11 +2,10 @@
     width: 100%;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    background-color: #2B2B2B;
+    background: url(/src/assets/img/background.jpg);
 
     .card{
         border: 1px solid orange;
-        width: 90%;
         margin: 1.4rem;
         
         .card-body{

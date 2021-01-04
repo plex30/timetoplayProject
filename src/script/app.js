@@ -1,4 +1,5 @@
 window.onload = ()=>{
+
     showHeader();
     showContent();
     showFooter();
@@ -6,6 +7,8 @@ window.onload = ()=>{
     
     
 }
+
+
 
 const showHeader = ()=>{
     const head$$ = document.createElement('header');
@@ -17,6 +20,7 @@ const showHeader = ()=>{
     createLogo();
     createNav();
     navBurguerIcon();
+    createSignIn();
     
 }
 
@@ -26,6 +30,8 @@ const showContent = ()=>{
     sliderCenter();
     highPost();
     cardPost();
+    
+    
 }
 
 const showFooter = ()=>{
@@ -40,11 +46,8 @@ const showFooter = ()=>{
 const createLogo = ()=>{
     const nav$$ = document.querySelector('nav');
     const h1$$ = document.createElement('h1');
-    const span$$ = document.createElement('span');
     h1$$.classList.add('logo');
-    h1$$.innerHTML = 'Time To<br>';
-    span$$.innerHTML= 'Pl<span class="a-span">a</span>y';
-    h1$$.appendChild(span$$);
+    h1$$.innerHTML = '<a href="index.html">Time To<br>Pl<span class="a-span">a</span>y</a>';
     nav$$.appendChild(h1$$);   
 }
 
@@ -60,7 +63,6 @@ const createNav = ()=>{
     for (let i = 0; i < 5; i++) {
     const li$$ = document.createElement('li');
     const a$$ = document.createElement('a');
-    a$$.classList.add('a-nav');
     a$$.setAttribute('href', "#");
 
     if (i == 0) {
@@ -73,16 +75,25 @@ const createNav = ()=>{
         a$$.textContent = 'Analisis'
     }else{
         a$$.textContent = 'Sign in'
+            logIn()
+        
+        
     }
     li$$.appendChild(a$$);
     ul$$.appendChild(li$$);
-        
+        a$$.addEventListener('click', ()=>{
+            if (a$$.textContent == 'Sign in') {
+                a$$.classList.add('a-sign');
+                actionSignIn();
+                console.log(logIn())
+            }
+    
+        })
     }
     containerfull$$.appendChild(ul$$);
     nav$$.appendChild(containerfull$$);
     containercollapse$$.appendChild(ul$$);
     nav$$.appendChild(containercollapse$$);
-
     
 }
 
@@ -101,6 +112,7 @@ const navBurguerIcon = ()=>{
 
 const actionBurguer = ()=>{
   const container$$ = document.querySelector('.container-collapse');
+  const wrapper$$ = document.querySelector('.wrapper');
   const main$$ = document.querySelector('main');
   const navCollap$$ = document.querySelector('.nav-collapse')
   container$$.addEventListener('click', ()=>{
@@ -111,11 +123,159 @@ const actionBurguer = ()=>{
     }else if(container$$){
         main$$.style.visibility = 'visible';
         navCollap$$.style.visibility = 'hidden';
+        wrapper$$.classList.remove('close');
+        wrapper$$.style.visibility = 'hidden';
     }
   })  
 }
 
+const createSignIn = ()=>{
+    const header$$ = document.querySelector('.header-main');
+    const wrapper$$ = document.createElement('div');
+    wrapper$$.classList.add('wrapper');
+    const formContent$$ = document.createElement('div');
+    formContent$$.classList.add('formContent');
+    wrapper$$.appendChild(formContent$$);
+    const first$$ = document.createElement('div');
+    first$$.classList.add('fadeIn', 'first');
+    const imgIcon$$ = document.createElement('img');
+    imgIcon$$.setAttribute('src', '/src/assets/img/icon.png');
+    imgIcon$$.setAttribute('id', 'icon');
+    first$$.appendChild(imgIcon$$);
+    formContent$$.appendChild(first$$);
+    const form$$ = document.createElement('form');
+    const inpLog$$ = document.createElement('input');
+    inpLog$$.setAttribute('type', 'text');
+    inpLog$$.setAttribute('id', 'login');
+    inpLog$$.setAttribute('name', 'login');
+    inpLog$$.setAttribute('placeholder', 'Usuario');
+    inpLog$$.classList.add('login');
+    const inpPass$$ = document.createElement('input');
+    inpPass$$.setAttribute('type', 'password');
+    inpPass$$.setAttribute('id', 'password');
+    inpPass$$.setAttribute('name', 'password');
+    inpPass$$.setAttribute('placeholder', 'Contraseña');
+    inpPass$$.classList.add('password');
+    const inpSub$$ = document.createElement('input');
+    inpSub$$.setAttribute('type', 'button');
+    inpSub$$.setAttribute('value', 'Iniciar Sesión');
+    inpSub$$.classList.add('subInput');
+    form$$.appendChild(inpLog$$);
+    form$$.appendChild(inpPass$$);
+    form$$.appendChild(inpSub$$);
+    formContent$$.appendChild(form$$);
+    const formFoot$$ = document.createElement('div');
+    formFoot$$.setAttribute('id', 'formFooter');
+    const afoot$$ = document.createElement('a');
+    afoot$$.classList.add('underlineHover');
+    afoot$$.setAttribute('href', '#');
+    afoot$$.textContent = '¿No está registrado?';
+    formFoot$$.appendChild(afoot$$);
+    formContent$$.appendChild(formFoot$$);
+    wrapper$$.appendChild(formContent$$);
+    header$$.appendChild(wrapper$$);
+    inpSub$$.addEventListener('click', ()=>{logIn(inpLog$$.value, inpPass$$.value)});
+    afoot$$.addEventListener('click', ()=>{createRegister()});
+}
 
+const actionSignIn = ()=>{
+    const wrapper$$ = document.querySelector('.wrapper');
+    const navCollap$$ = document.querySelector('.nav-collapse')
+    
+      wrapper$$.classList.toggle('close');
+      if (document.querySelector('.wrapper.close')) {
+        wrapper$$.style.visibility = 'visible';
+        navCollap$$.style.visibility = 'hidden';
+      }else if(wrapper$$){
+          wrapper$$.style.visibility = 'hidden';
+          navCollap$$.style.visibility = 'hidden';
+      }
+      
+  }
+
+const logIn = (usr, pass)=>{
+    const a$$ = document.querySelector('.a-sign');
+    let dbUser = new Dexie("Userdb");
+          dbUser.version(2).stores({
+              users: 'user ,mail ,password'
+          });
+
+          dbUser.users.each(user =>{
+              if (user.user == usr && user.password == pass) {
+                  return a$$.textContent = 'Bienvenido '+ user.user ;
+              }
+          })
+              
+}
+
+const createRegister = ()=>{
+    const wrapper$$ = document.querySelector('.wrapper');
+    wrapper$$.innerHTML = '';
+    const formContent$$ = document.createElement('div');
+    formContent$$.classList.add('formContent');
+    wrapper$$.appendChild(formContent$$);
+    const first$$ = document.createElement('div');
+    first$$.classList.add('fadeIn', 'first');
+    formContent$$.appendChild(first$$);
+    const form$$ = document.createElement('form');
+    const inpLog$$ = document.createElement('input');
+    inpLog$$.setAttribute('type', 'text');
+    inpLog$$.setAttribute('id', 'login');
+    inpLog$$.setAttribute('name', 'login');
+    inpLog$$.setAttribute('placeholder', 'Nombre usuario');
+    inpLog$$.classList.add('login');
+    const inpMail$$ = document.createElement('input');
+    inpMail$$.setAttribute('type', 'email');
+    inpMail$$.setAttribute('placeholder', 'Email');
+    inpMail$$.classList.add('mail');
+    const inpPass$$ = document.createElement('input');
+    inpPass$$.setAttribute('type', 'password');
+    inpPass$$.setAttribute('id', 'password');
+    inpPass$$.setAttribute('name', 'password');
+    inpPass$$.setAttribute('placeholder', 'Contraseña');
+    inpPass$$.classList.add('password');
+    const inpSub$$ = document.createElement('input');
+    inpSub$$.setAttribute('type', 'button');
+    inpSub$$.setAttribute('value', 'Crear nueva cuenta');
+    inpSub$$.classList.add('subInput');
+    form$$.appendChild(inpLog$$);
+    form$$.appendChild(inpMail$$);
+    form$$.appendChild(inpPass$$);
+    form$$.appendChild(inpSub$$);
+    formContent$$.appendChild(form$$);
+    inpSub$$.addEventListener('click', ()=>{newRegister(inpLog$$.value, inpPass$$.value, inpMail$$.value)})
+}
+
+const newRegister = (user, pass, mail)=>{
+
+        let dbUser = new Dexie("Userdb");
+          dbUser.version(2).stores({
+              users: 'user ,mail ,password'
+          });
+         
+          dbUser.users.put({user: user, mail: mail, password: pass});  
+}
+
+const createModal = ()=>{
+    const main = document.querySelector('main');
+    main.innerHTML = ` <div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+
+}
 
 const createSearch = ()=>{
     const nav$$ = document.querySelector('nav');
@@ -172,7 +332,7 @@ const highPost = ()=>{
             imgPost.classList.add('wow', 'bounceInUp')
             const aPost = document.createElement('a');
             aPost.setAttribute('href', '#');
-            imgPost.addEventListener('click', () => {resetMain(); showArticle(post)});
+            imgPost.addEventListener('click', () => {resetMain(); showArticle(post.id)});
             imgPost.appendChild(aPost);
             divPost$$.appendChild(imgPost);
             divPost$$.appendChild(namePost);
@@ -223,6 +383,7 @@ const cardPost = ()=>{
             cardFooter$$.appendChild(smallCard$$);
             card$$.appendChild(cardFooter$$);
             divMain$$.appendChild(card$$);
+            aCard$$.addEventListener('click', ()=>{resetMain(); showArticle(post.id+4)})
         }
        main$$.appendChild(divMain$$);
     })
@@ -231,7 +392,7 @@ const cardPost = ()=>{
 
 const showArticle = (data)=>{
 
-    callData('contentPosts/'+data.id).then(post =>{
+    callData('contentPosts/'+data).then(post =>{
 
         const main$$ = document.querySelector('main');
         const divMain$$ = document.createElement('div');
@@ -249,11 +410,13 @@ const showArticle = (data)=>{
         h2$$.textContent = post.tittle;
         const pOne$$ = document.createElement('p');
         pOne$$.textContent = post.date;
+        pOne$$.classList.add('date');
         const h5$$ = document.createElement('h5');
         h5$$.textContent = 'Escrito por: '+post.author;
         const img$$ = document.createElement('img');
         img$$.setAttribute('src', post.image);
         const pTwo$$ = document.createElement('p'); 
+        pTwo$$.classList.add('content');
         pTwo$$.innerHTML = post.content;
         divlft$$.appendChild(img$$);
         divlft$$.appendChild(h4$$);
@@ -276,17 +439,18 @@ const sendMessage = (name, message, mail)=>{
     let date = new Date();
     date.toLocaleDateString();
 
-       var db = new Dexie("Messagedb");
+        let db = new Dexie("Messagedb");
           db.version(1).stores({
               messages: 'name,mail,content, date'
           });
          
           db.messages.put({name: name, mail: mail, content: message, date: date})  
+          showMessage();
 }
 
 const showMessage = ()=>{
 
-    var db = new Dexie("Messagedb");
+     let db = new Dexie("Messagedb");
           db.version(1).stores({
               messages: 'name,mail,content'
           });
@@ -334,6 +498,7 @@ const showNewMessage = ()=>{
     inputMail$$.setAttribute('placeholder', 'Email');
     const btnSend$$ = document.createElement('button');
     btnSend$$.textContent = 'Enviar';
+    btnSend$$.setAttribute('type', 'submit');
     divMessage$$.appendChild(tittleh3$$);
     form$$.appendChild(inputName$$);
     form$$.appendChild(inputMail$$);

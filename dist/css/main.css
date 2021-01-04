@@ -1,3 +1,24 @@
+@media screen and (min-width: 768px) {
+  .carousel.pointer-event {
+    width: 98%;
+  }
+  .highPost {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .highPost .item-post {
+    width: 47%;
+  }
+  .card-post {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .card-post .card {
+    width: 44%;
+    justify-content: space-between;
+  }
+}
+
 html, body {
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
@@ -27,18 +48,19 @@ html, body {
 
 .header-main .nav-bar .logo {
   font-family: 'Space';
-  color: black;
   margin: 1rem auto;
   margin-top: 1rem;
   font-size: 2.3rem;
   text-align: center;
 }
 
-.header-main .nav-bar .logo span {
-  padding-top: -1.3rem;
+.header-main .nav-bar .logo a {
+  text-decoration: none;
+  color: black;
 }
 
-.header-main .nav-bar .logo .a-span {
+.header-main .nav-bar .logo span {
+  padding-top: -1.3rem;
   color: orange;
 }
 
@@ -141,14 +163,12 @@ main .carousel {
 
 main .carousel .carousel-inner .carousel-item img {
   width: 20rem;
-  height: 18rem;
 }
 
 .highPost .item-post {
   background: #4e4e4e;
   margin: 0.6rem;
   color: white;
-  width: 96%;
 }
 
 .highPost .item-post:hover {
@@ -160,7 +180,8 @@ main .carousel .carousel-inner .carousel-item img {
 
 .highPost .item-post h4 {
   background-color: orange;
-  width: auto;
+  width: fit-content;
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
   position: absolute;
   margin-left: 0.5rem;
   margin-top: -6rem;
@@ -185,12 +206,11 @@ main .carousel .carousel-inner .carousel-item img {
   width: 100%;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  background-color: #2B2B2B;
+  background: url(/src/assets/img/background.jpg);
 }
 
 .card-post .card {
   border: 1px solid orange;
-  width: 90%;
   margin: 1.4rem;
 }
 
@@ -207,13 +227,13 @@ main .carousel .carousel-inner .carousel-item img {
   font-size: 1.2rem;
   margin-left: 1rem;
   background-color: orange;
-  width: 25%;
+  width: fit-content;
   color: white;
   padding: 0.2rem 0.4rem 0.2rem 0.4rem;
 }
 
 .article-post .cont-lft img {
-  width: 90%;
+  width: 93%;
   margin: 1rem;
 }
 
@@ -222,13 +242,13 @@ main .carousel .carousel-inner .carousel-item img {
   font-size: 1.7rem;
 }
 
-.article-post .cont-lft p:nth-child(4) {
+.article-post .cont-lft .date {
   margin-left: 1rem;
   color: #3B71E5;
   font-size: 0.8rem;
 }
 
-.article-post .cont-lft p:nth-child(5) {
+.article-post .cont-lft .content {
   margin: 1rem;
   font-size: 1.2rem;
 }
@@ -317,5 +337,127 @@ main .carousel .carousel-inner .carousel-item img {
 
 .cont-rgt ul li a {
   text-decoration: none;
+}
+
+/* STRUCTURE */
+.wrapper {
+  position: absolute;
+  visibility: hidden;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+  margin: 1.5rem;
+  margin-top: 8rem;
+}
+
+#formContent {
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+#formFooter {
+  background-color: #f6f6f6;
+  border-top: 1px solid #dce8f1;
+  padding: 25px;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+}
+
+/* TABS */
+h2.inactive {
+  color: #cccccc;
+}
+
+h2.active {
+  color: #0d0d0d;
+  border-bottom: 2px solid #5fbae9;
+}
+
+/* FORM TYPOGRAPHY*/
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  box-shadow: 0 10px 30px 0 rgba(233, 189, 95, 0.4);
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+  background-color: orange;
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
+  transform: scale(0.95);
+}
+
+input[type=text], input[type=password], input[type=email] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  transition: all 0.5s ease-in-out;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #e9ad5f;
+}
+
+input[type=text]::placeholder, input[type=password]::placeholder {
+  color: #cccccc;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after {
+  width: 100%;
+}
+
+/* OTHERS */
+*:focus {
+  outline: none;
+}
+
+#icon {
+  width: 20%;
+  margin-left: 8.1rem;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,1 +1,27 @@
- 
+@include tablet{
+    .carousel.pointer-event {
+        width: 98%;
+    }
+    .highPost{
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }
+
+    .highPost .item-post{
+        width: 47%;
+    }
+
+    .card-post{
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }
+
+    .card-post .card{
+        width: 44%;
+        justify-content: space-between;
+    }
+}
