@@ -3,7 +3,10 @@ window.onload = () => {
     showContent();
     showFooter();
     actionBurguer();
+    authUser();
 };
+
+let tokenUser = '';
 //***********************SHOW CONTENT******************************
 
 const showHeader = () => {
@@ -51,7 +54,6 @@ const createListNav = () => {
     for (let i = 0; i < 5; i++) {
         const li$$ = document.createElement("li");
         const a$$ = document.createElement("a");
-        a$$.setAttribute("href", "#");
 
         if (i == 0) {
             a$$.textContent = "Videojuegos";
@@ -172,7 +174,6 @@ const createSignIn = () => {
     formFoot$$.setAttribute("id", "formFooter");
     const afoot$$ = document.createElement("a");
     afoot$$.classList.add("underlineHover");
-    afoot$$.setAttribute("href", "#");
     afoot$$.textContent = "¿No está registrado?";
     formFoot$$.appendChild(afoot$$);
     formContent$$.appendChild(formFoot$$);
@@ -249,26 +250,48 @@ const createRegister = () => {
 
 const logIn = (usr, pass) => {
     const a$$ = document.querySelector(".a-sign");
+    const token = generate_token(32);
+    
     let dbUser = new Dexie("Userdb");
     dbUser.version(2).stores({
-        users: "user ,mail ,password",
+        users: "user ,mail ,password, token",
     });
-
-    dbUser.users.each((user) => {
-        if (user.user == usr && user.password == pass) {
-            return (a$$.innerHTML = `<p>Bienvenido </p><span style="color:black">${user.user}</span></p>`);
-        }
-    });
+    
+    dbUser.users.where({user: usr, password: pass}).first(user => {
+       if (JSON.stringify(user) != undefined || JSON.stringify(user) != null) {
+        tokenUser = token;
+        dbUser.users.update(usr, {token: token});
+        a$$.innerHTML = `<p>Bienvenido </p><span style="color:black">${user.user}</span></p>`;
+       }else{
+           alert('Usuario no registrado');
+       }
+    })
 };
+const authUser = ()=>{
+    if (tokenUser != '') {
+        console.log(tokenUser)
+    }
+}
 
 const newRegister = (user, pass, mail) => {
     let dbUser = new Dexie("Userdb");
     dbUser.version(2).stores({
-        users: "user ,mail ,password",
+        users: "user ,mail ,password, token",
     });
 
-    dbUser.users.put({ user: user, mail: mail, password: pass });
+    dbUser.users.put({ user: user, mail: mail, password: pass, token:'' });
 };
+
+function generate_token(length){
+    //edit the token allowed characters
+    var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split("");
+    var b = [];  
+    for (var i=0; i<length; i++) {
+        var j = (Math.random() * (a.length-1)).toFixed(0);
+        b[i] = a[j];
+    }
+    return b.join("");
+}
 
 /* const createModal = ()=>{
     const main = document.querySelector('main');
@@ -560,3 +583,42 @@ const callData = async (type) => {
         return console.warn(error);
     }
 };
+
+
+async function basiclogin (email, password) {
+  const response = await zlFetch.post(loginEndpoint, {
+    auth: {
+      username: email,
+      password: password
+    },
+    body: { /*...*/ }
+  })
+  const { token } = response.body
+  
+  localStorage.setItem('token', token)
+}
+
+async function isLoggedIn () {
+    const token = store.get('token')
+    if (!token) return false
+  }
+
+  async function autoRedirect () {
+    const validLogin = await isLoggedIn()
+    if (!validLogin && location.pathname !== '/login/') redirect('/login')
+    if (validLogin && location.pathname === '/login/') redirect('/')
+  }
+
+  async function isLoggedIn () {
+    // ...
+    // Checks validity of token
+    const response = await zlFetch.post(loginEndpoint, {
+      auth: token,
+      body: { course: 'learn-javascript' }
+    })
+    const { token } = response.body
+    localStorage.setItem('token', token)
+    return true;
+  }
+
+  
