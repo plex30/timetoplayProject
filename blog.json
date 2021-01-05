@@ -29,7 +29,7 @@
         {
             "id": 4,
             "name": "Análisis",
-            "tittle": "Análisis Assassin's Creed Valhalla",
+            "tittle": "Assassin's Creed Valhalla",
             "image": "src/assets/img/assassin.jpg",
             "date": "Diciembre",
             "author": "Beth"
@@ -42,8 +42,8 @@
             "name": "Especiales",
             "tittle": "¿Qué Playstation tuvo el mejor catálago de lanzamiento?",
             "image": "src/assets/img/lanzamiento.jpg",
-            "date": "Noviembre",
-            "content": "Hace poco os contábamos cuál había sido -a nuestro juicio- el mejor catálogo de todas las Xbox por el lanzamiento de Series S/X. Y como a Sony no le gusta perderse una fiesta y el ...",
+            "date": "20 de Noviembre de 2020",
+            "content": "Hace poco os contábamos cuál había sido -a nuestro juicio- el mejor catálogo de todas las Xbox por el lanzamiento de Series S/X. Y como a Sony no le gusta perderse una fiesta y el lanzamiento de PlayStation 5 ha sido algo escaso...",
             "author": "Zack"
 
         },
@@ -52,7 +52,7 @@
             "name": "Videojuegos",
             "tittle": "Ghost of Tsushima es el goty de los jugadores",
             "image": "src/assets/img/goty.jpg",
-            "date": "Diciembre",
+            "date": "2 de Diciembre 2020",
             "content": "Los jugadores escogen a Ghost of Tsushima como juego del año en la votación organizada por The Game Awards. En los últimos días era posible realizar la votación a través de la web oficial por ...",
             "author": "Logan"
 
@@ -62,8 +62,8 @@
             "name": "Retro",
             "tittle": "Resident Evil Code Veronica",
             "image": "src/assets/img/code.jpg",
-            "date": "Octubre",
-            "content": "Cuando hablamos de Resident Evil, una de las sagas de Capcom por excelencia, afloran recuerdos asociados a entregas muy concretas. Se agolpan en la mente momentos inolvidables. Resident Evil 2, seguido de su primera entrega ...",
+            "date": " 5 de Octubre de 2020",
+            "content": "Cuando hablamos de Resident Evil, una de las sagas de Capcom por excelencia, afloran recuerdos asociados a entregas muy concretas. Se agolpan en la mente momentos inolvidables. Resident Evil 2, seguido de su primera entrega de las que hemos podido disfrutar...",
             "author": "Logan"
 
         },
@@ -71,9 +71,9 @@
             "id": 4,
             "name": "Análisis",
             "tittle": "Análisis Super Mario 3D All-Stars",
-            "image": "src/assets/img/allstar.jpeg",
-            "date": "Octubre",
-            "content": "Super Mario no necesita estrellas ni soles para brillar, lo hace por si mismo y así lo lleva demostrando 35 años. Y para… ¿celebrarlo?… Nintendo nos ha dado por sorpresa Super Mario 3D All-Stars para ...",
+            "image": "src/assets/img/all.jpg",
+            "date": "6 de Octubre de 2020",
+            "content": "Super Mario no necesita estrellas ni soles para brillar, lo hace por si mismo y así lo lleva demostrando 35 años. Y para… ¿celebrarlo?… Nintendo nos ha dado por sorpresa Super Mario 3D All-Stars para  Switch. Y ponemos en duda lo de “celebrarlo”...",
             "author": "Beth"
 
         },
@@ -82,7 +82,7 @@
             "name": "Videojuegos",
             "tittle": "Demon's Souls Remake 5 minutos de gameplay",
             "image": "src/assets/img/demon.jpg",
-            "date": "Octubre",
+            "date": "14 de Octubre de 2020",
             "content": "Bluepoint y Japan Studio han presentado recientemente un nuevo gameplay de Demon’s Souls Remake para PS5. En el remake de Demon’s Souls regresarás al reino de Boletaria, un lugar plagado de niebla. Aquí, la muerte no ...",
             "author": "Jess"
 
@@ -92,9 +92,69 @@
             "name": "Especiales",
             "tittle": "El Búnker: Solo puedes escoger una consola",
             "image": "src/assets/img/bunker.jpg",
-            "date": "Septiembre",
+            "date": "18 de Septiembre de 2020",
             "content": "No queda tiempo, el mundo que conocemos se acerca a su fin. Has preparado todo lo necesario para pasar una larga temporada bajo tierra, a salvo dentro un búnker. Ha llegado el momento de escoger ...",
             "author": "Zack"
+
+        },
+        {
+            "id": 7,
+            "name": "Videojuegos",
+            "tittle": "The Medium: Dual Reality",
+            "image": "src/assets/img/medium.jpg",
+            "date": " 1 de Octubre de 2020",
+            "content": "Bloober Team nos explica el funcionamiento del sistema de Realidades paralelas, una de las mecánicas principales en The Medium, que nos permitirá interactuar como el mundo real y el espiritual al mismo tiempo. En The Medium...",
+            "author": "Logan"
+
+        },
+        {
+            "id": 8,
+            "name": "Videojuegos",
+            "tittle": "Scorn presenta 13 minutos de gameplay",
+            "image": "src/assets/img/scorn.jpg",
+            "date": "22 de Octubre de 2020",
+            "content": "Xbox ha publicado un nuevo vídeo de Scorn, el título de acción en primera persona desarrollado para Xbox Series X por el estudio serbio Ebb Software. Scorn se caracteriza por su imponente apartado técnico y ...",
+            "author": "RealFake"
+
+        },
+        {
+            "id": 9,
+            "name": "Análisis",
+            "tittle": "Star Wars Jedi:Fallen Order",
+            "image": "src/assets/img/starwars.jpg",
+            "date": "11 de Diciembre de 2020",
+            "content": "Benditos sean los soles de Tatooine Respawn se propuso crear una nueva aventura dentro la saga de Star Wars a través de un videojuego para un sólo jugador y centrado en un joven aprendiz jedi. Por lo tanto, Fallen Order se aleja de...",
+            "author": "Beth"
+
+        },
+        {
+            "id": 10,
+            "name": "Videojuegos",
+            "tittle": "Resident Evil 3 Remake: Tráiler y fecha de lanzamiento",
+            "image": "src/assets/img/r3.jpg",
+            "date": "10 de Diciembre de 2020",
+            "content": "Capcom ha presentado de forma oficial Resident Evil 3 Remake, una nueva reinterpretación del famoso survival horror para PSX protagonizado por Jill Valentine. Resident Evil 3 Remake llegará el 3 de abril de 2020 a ...",
+            "author": "Sam"
+
+        },
+        {
+            "id": 11,
+            "name": "Análisis",
+            "tittle": "Análisis Pacer",
+            "image": "src/assets/img/racer.jpg",
+            "date": "29 de Octubre de 2020",
+            "content": "Carreras antigravedad en el siglo XXI En el año 2075, corporaciones de todo el mundo compiten por obtener la gloria en el Campeonato Mundial Pacer, la cumbre del automovilismo antigravedad. No necesitas saber mucho más. En este tipo de juegos el argumento...",
+            "author": "Beth"
+
+        },
+        {
+            "id": 12,
+            "name": "Análisis",
+            "tittle": "Análisis Luigi's Mansion 3",
+            "image": "src/assets/img/luigi.jpg",
+            "date": "18 de Diciembre de 2019",
+            "content": "“El survival de Nintendo” No es precisamente sencillo implementar en un videojuego de manera óptima sus componentes indisolubles e innatos. Elementos como la adicción, la curva de dificultad y la progresión hay que saber cómo, ...",
+            "author": "Jess"
 
         }
     ],

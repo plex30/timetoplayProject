@@ -52,9 +52,12 @@
         transition: 1s;
     }
 
-    input[type=button],
-    input[type=submit] {
+    input[type=button] {
         margin-left: 12rem;
+    }
+
+    input[type=submit]{
+        margin-left: 10rem;
     }
 
     #icon {
@@ -67,6 +70,24 @@
 
     .formContent #formFooter {
         margin-left: -7rem;
+    }
+
+    .article-post .cont-lft img{
+        width: 96.5%;
+    }
+
+    .article-post .cont-lft .new-message{
+        width: 70%;
+        
+    }
+
+    .article-post .cont-lft .message{
+        width: 80%;
+        margin-left: 10rem;
+    }
+
+    .article-post .cont-lft .new-message button{
+        margin-left: 30rem;
     }
 }
 
@@ -88,12 +109,60 @@
         width: 23.17%;
     }
 
+    .card-post{
+        padding-left: 7rem;
+        
+    }
+
     .card-post .card{
-        width: 23%;
-        justify-content: center;
+        width: 21%;
+        margin-left: 1em;
     }
 
     .logo{
         padding-right: 45rem;
     }
+
+    input[type=button]{
+        margin: 0 auto;
+    }
+
+    #icon {
+        margin-left: 7.2rem;
+    }
+
+    .formContent {
+        margin-left: 41rem;
+        width: 20%;
+    }
+
+    .formContent #formFooter {
+        margin-left: -4rem;
+    }
+
+    input[type=submit]{
+       margin-left: -1.5rem;
+       
+    }
+
+    .article-post .cont-lft{
+        width: 60%;
+        margin-left: 22rem;
+    }
+
+    .article-post .cont-lft .new-message{
+        width: 70%;
+        
+    }
+
+    .article-post .cont-lft .message{
+        width: 80%;
+        margin-left: 10rem;
+    }
+
+    .article-post .cont-lft .new-message button{
+        margin-left: 38rem;
+    }
+
+    
 }
