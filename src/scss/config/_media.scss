@@ -92,13 +92,16 @@
 }
 
 @include desktop {
+
+    
     main .carousel{
-        width: 60%;
-        margin-left: 20rem;
-        margin-top: 3rem;
+        width: 70%;
+        margin-left: 16.5rem;
+        margin-top: 1rem;
+        
     }
     main .carousel .carousel-inner .carousel-item img{
-        height: 30rem;
+        height: 33rem;
     }
 
     .highPost{

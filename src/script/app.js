@@ -4,6 +4,7 @@ window.onload = () => {
     showFooter();
     actionBurguer();
     authUser();
+
 };
 
 let tokenUser = '';
@@ -66,7 +67,7 @@ const createListNav = () => {
         } else {
             a$$.innerHTML = `<i class='bx bx-user'></i>`;
             a$$.classList.add("a-sign");
-            logIn();
+            
         }
         li$$.appendChild(a$$);
         ul$$.appendChild(li$$);
@@ -249,29 +250,62 @@ const createRegister = () => {
 //***********ACTIONS FORM SIGN IN & FORM REGISTER *****************************/
 
 const logIn = (usr, pass) => {
-    const a$$ = document.querySelector(".a-sign");
+
     const token = generate_token(32);
-    
+
     let dbUser = new Dexie("Userdb");
     dbUser.version(2).stores({
         users: "user ,mail ,password, token",
     });
-    
+
     dbUser.users.where({user: usr, password: pass}).first(user => {
-       if (JSON.stringify(user) != undefined || JSON.stringify(user) != null) {
-        tokenUser = token;
-        dbUser.users.update(usr, {token: token});
-        a$$.innerHTML = `<p>Bienvenido </p><span style="color:black">${user.user}</span></p>`;
-       }else{
-           alert('Usuario no registrado');
-       }
+        if (user != undefined) {
+            dbUser.users.update(user.user, {token: token});
+            authUser(usr, token);
+            location.reload()
+        }else{
+            alert('Usuario no registrado')
+        }
+        
     })
-};
-const authUser = ()=>{
-    if (tokenUser != '') {
-        console.log(tokenUser)
-    }
 }
+
+const authUser = () => {
+    const a$$ = document.querySelector(".a-sign");
+
+    let dbUser = new Dexie("Userdb");
+    dbUser.version(2).stores({
+        users: "user ,mail ,password, token",
+    });
+    dbUser.users.each(user => {
+        if (user.token != '') {
+            a$$.innerHTML = `<p>Bienvenido<span style="color:black"> ${user.user}</span></p>`;
+            a$$.classList.add('logout');
+            a$$.addEventListener('click', ()=>{LogOut(user.user);})
+        }
+
+    })
+}
+
+const LogOut = (user)=>{
+    const a$$ = document.querySelector(".a-sign.logout");
+    let dbUser = new Dexie("Userdb");
+    dbUser.version(2).stores({
+        users: "user ,mail ,password, token",
+    });
+
+    dbUser.users.where({user: user}).first(user=>{
+        if (user.token != '') {
+            confirm('¿Está seguro que quiero salir de la sesión')
+            dbUser.users.update(user, {token:''})
+            location.reload();
+        }else{
+            a$$.classList.remove("logout");
+            a$$.innerHTML = `<i class='bx bx-user'></i>`;
+        }
+    })
+}
+
 
 const newRegister = (user, pass, mail) => {
     let dbUser = new Dexie("Userdb");
@@ -279,19 +313,15 @@ const newRegister = (user, pass, mail) => {
         users: "user ,mail ,password, token",
     });
 
-    dbUser.users.put({ user: user, mail: mail, password: pass, token:'' });
+    dbUser.users.put({
+        user: user,
+        mail: mail,
+        password: pass,
+        token: ''
+    });
 };
 
-function generate_token(length){
-    //edit the token allowed characters
-    var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split("");
-    var b = [];  
-    for (var i=0; i<length; i++) {
-        var j = (Math.random() * (a.length-1)).toFixed(0);
-        b[i] = a[j];
-    }
-    return b.join("");
-}
+
 
 /* const createModal = ()=>{
     const main = document.querySelector('main');
@@ -371,7 +401,6 @@ const highPost = () => {
             imgPost.setAttribute("src", post.image);
             imgPost.classList.add("wow", "bounceInUp");
             const aPost = document.createElement("a");
-            aPost.setAttribute("href", "#");
             imgPost.addEventListener("click", () => {
                 resetMain();
                 showArticle(post.id);
@@ -396,7 +425,12 @@ const cardPost = () => {
         for (const post of postData) {
             const card$$ = document.createElement("div");
             card$$.classList.add("card");
-            card$$.setAttribute("loading", "lazy");
+            if (post.id == 1 || post.id == 2 || post.id == 5 || post.id == 6 || post.id == 9 || post.id == 10) {
+                card$$.classList.add('animate__animated','animate__bounceInLeft');
+            }else{
+                card$$.classList.add('animate__animated', 'animate__bounceInRight');
+            }
+            
             const imgCard$$ = document.createElement("img");
             imgCard$$.classList.add("card-img-top");
             imgCard$$.setAttribute("src", post.image);
@@ -467,15 +501,15 @@ const showArticle = (data) => {
         divrgt$$.innerHTML = `<h3>Sobre Nosotros</h3><p>Blog dedicado a informar sobre las últimas noticias de videojuegos</p><h2>Archives</h2><ul><li><a href="#">Noviembre 2020</a></li><li><a href="#">Octubre 2020</a></li><li><a href="#">Septiembre 2020</a></li><li><a href="#">Agosto 2020</a></li><li><a href="#">Julio 2020</a></li><li><a href="#">Junio 2020</li></a><li><a href="#">Mayo 2020</a></li><li><a href="#">Abril 2020</a></li></ul>`;
         divMain$$.appendChild(divrgt$$);
         main$$.appendChild(divMain$$);
-        showNewMessage();
-        showMessage();
+        showNewMessage(post.id);
+        showMessage(post.id);
     });
 };
 
 //*********CREATE NEWMESSAGE, SHOWMESSAGE & ACTIONS SENDMESSAGE ********************/
 
-const showMessage = () => {
-    let db = new Dexie("Messagedb");
+const showMessage = (id) => {
+    let db = new Dexie("Messagedb"+id);
     db.version(1).stores({
         messages: "name,mail,content",
     });
@@ -501,14 +535,14 @@ const showMessage = () => {
     });
 };
 
-const showNewMessage = () => {
+const showNewMessage = (id) => {
     const main$$ = document.querySelector(".cont-lft");
     const divMessage$$ = document.createElement("div");
     divMessage$$.classList.add("new-message");
     const tittleh3$$ = document.createElement("h3");
     tittleh3$$.textContent = "Escribe un nuevo comentario";
     const form$$ = document.createElement("form");
-    form$$.setAttribute("action", "#");
+    
     const textAre$$ = document.createElement("textarea");
     textAre$$.setAttribute("placeholder", "Escribe un comentario...");
     const inputName$$ = document.createElement("input");
@@ -529,21 +563,26 @@ const showNewMessage = () => {
     main$$.appendChild(divMessage$$);
 
     btnSend$$.addEventListener("click", () => {
-        sendMessage(inputName$$.value, textAre$$.value, inputMail$$.value);
+        sendMessage(inputName$$.value, textAre$$.value, inputMail$$.value, id);
         alert("Comentario enviado.");
     });
 };
 
-const sendMessage = (name, message, mail) => {
+const sendMessage = (name, message, mail, id) => {
     let date = new Date();
     date.toLocaleDateString();
 
-    let db = new Dexie("Messagedb");
+    let db = new Dexie("Messagedb"+id);
     db.version(1).stores({
         messages: "name,mail,content, date",
     });
 
-    db.messages.put({ name: name, mail: mail, content: message, date: date });
+    db.messages.put({
+        name: name,
+        mail: mail,
+        content: message,
+        date: date
+    });
     showMessage();
 };
 
@@ -585,40 +624,57 @@ const callData = async (type) => {
 };
 
 
-async function basiclogin (email, password) {
-  const response = await zlFetch.post(loginEndpoint, {
-    auth: {
-      username: email,
-      password: password
-    },
-    body: { /*...*/ }
-  })
-  const { token } = response.body
-  
-  localStorage.setItem('token', token)
+async function basiclogin(email, password) {
+    const response = await zlFetch.post(loginEndpoint, {
+        auth: {
+            username: email,
+            password: password
+        },
+        body: {
+            /*...*/
+}
+    })
+    const {
+        token
+    } = response.body
+
+    localStorage.setItem('token', token)
 }
 
-async function isLoggedIn () {
+async function isLoggedIn() {
     const token = store.get('token')
     if (!token) return false
-  }
+}
 
-  async function autoRedirect () {
+async function autoRedirect() {
     const validLogin = await isLoggedIn()
     if (!validLogin && location.pathname !== '/login/') redirect('/login')
     if (validLogin && location.pathname === '/login/') redirect('/')
-  }
+}
 
-  async function isLoggedIn () {
+async function isLoggedIn() {
     // ...
     // Checks validity of token
     const response = await zlFetch.post(loginEndpoint, {
-      auth: token,
-      body: { course: 'learn-javascript' }
+        auth: token,
+        body: {
+            course: 'learn-javascript'
+        }
     })
-    const { token } = response.body
+    const {
+        token
+    } = response.body
     localStorage.setItem('token', token)
     return true;
-  }
+}
 
-  
+function generate_token(length) {
+    //edit the token allowed characters
+    var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split("");
+    var b = [];
+    for (var i = 0; i < length; i++) {
+        var j = (Math.random() * (a.length - 1)).toFixed(0);
+        b[i] = a[j];
+    }
+    return b.join("");
+}
