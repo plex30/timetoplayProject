@@ -42,14 +42,14 @@
 
     .header-main .nav-bar .nav-full ul li a {
         text-decoration: none;
-        color: orange;
+        color: rgb(253, 253, 253);
         font-size: 1.4rem;
         margin: 0.7rem;
     }
 
     .header-main .nav-bar .nav-full ul li a:hover {
-        color: black;
-        transition: 1s;
+        color: orange;
+        transition: 0.5s;
     }
 
     input[type=button] {
@@ -89,6 +89,10 @@
     .article-post .cont-lft .new-message button{
         margin-left: 30rem;
     }
+
+    .article-post .cont-lft .new-message textarea{
+        width: 36.3rem;
+    }
 }
 
 @include desktop {
@@ -97,7 +101,7 @@
     main .carousel{
         width: 70%;
         margin-left: 16.5rem;
-        margin-top: 1rem;
+        margin-top: 0.1rem;
         
     }
     main .carousel .carousel-inner .carousel-item img{

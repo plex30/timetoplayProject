@@ -43,7 +43,7 @@ const showFooter = () => {
 const createLogo = () => {
     const nav$$ = document.querySelector("nav");
     const h1$$ = document.createElement("h1");
-    h1$$.classList.add("logo");
+    h1$$.classList.add("logo",'wow', 'fadeInUp', 'data-wow-delay="0.3s"');
     h1$$.innerHTML =
         '<a href="index.html">Time To<br>Pl<span class="a-span">a</span>y</a>';
     nav$$.appendChild(h1$$);
@@ -65,7 +65,7 @@ const createListNav = () => {
         } else if (i == 3) {
             a$$.textContent = "Analisis";
         } else {
-            a$$.innerHTML = `<i class='bx bx-user'></i>`;
+            a$$.innerHTML = `<i class='bx bx-user' style="color:orange"></i>`;
             a$$.classList.add("a-sign");
             
         }
@@ -370,7 +370,7 @@ const sliderCenter = () => {
     const divInner$$ = document.createElement("div");
     divInner$$.classList.add("carousel-inner");
     divInner$$.innerHTML = `<div class="carousel-item active">
-    <img src="/src/assets/img/mario.png" class="d-block w-100" alt="...">
+    <img src="/src/assets/img/SuperMario.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
     <img src="/src/assets/img/Cyberpunk.jpg" class="d-block w-100" alt="...">
@@ -426,9 +426,13 @@ const cardPost = () => {
             const card$$ = document.createElement("div");
             card$$.classList.add("card");
             if (post.id == 1 || post.id == 2 || post.id == 5 || post.id == 6 || post.id == 9 || post.id == 10) {
-                card$$.classList.add('animate__animated','animate__bounceInLeft');
+                card$$.setAttribute('data-aos', 'fade-right')
+                card$$.setAttribute('data-aos-offset', '300')
+                card$$.setAttribute('data-aos-easing', 'ease-in-sine')
             }else{
-                card$$.classList.add('animate__animated', 'animate__bounceInRight');
+                card$$.setAttribute('data-aos', 'fade-left')
+                card$$.setAttribute('data-aos-offset', '300')
+                card$$.setAttribute('data-aos-easing', 'ease-in-sine')
             }
             
             const imgCard$$ = document.createElement("img");
@@ -544,7 +548,7 @@ const showNewMessage = (id) => {
     const form$$ = document.createElement("form");
     
     const textAre$$ = document.createElement("textarea");
-    textAre$$.setAttribute("placeholder", "Escribe un comentario...");
+    textAre$$.setAttribute("placeholder", "Mensaje...");
     const inputName$$ = document.createElement("input");
     inputName$$.classList.add("inputName");
     inputName$$.setAttribute("placeholder", "Nombre");
@@ -555,9 +559,9 @@ const showNewMessage = (id) => {
     btnSend$$.textContent = "Enviar";
     btnSend$$.setAttribute("type", "submit");
     divMessage$$.appendChild(tittleh3$$);
+    form$$.appendChild(textAre$$);
     form$$.appendChild(inputName$$);
     form$$.appendChild(inputMail$$);
-    form$$.appendChild(textAre$$);
     form$$.appendChild(btnSend$$);
     divMessage$$.appendChild(form$$);
     main$$.appendChild(divMessage$$);
