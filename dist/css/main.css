@@ -19,7 +19,7 @@ html, body {
 }
 
 .header-main {
-  background: #161616;
+  background: #313131;
   border-bottom: 1px solid orange;
 }
 
@@ -50,6 +50,10 @@ html, body {
   display: none;
 }
 
+.header-main .nav-bar .nav-full .dropdown-item li {
+  width: 20%;
+}
+
 .header-main .nav-bar .nav-collapse {
   display: none;
 }
@@ -78,14 +82,36 @@ html, body {
   transition: 1s;
 }
 
+.header-main .nav-bar .nav-collapse ul li .a-sign {
+  margin-left: 8rem;
+}
+
+.header-main .nav-bar .nav-collapse ul .dropdown-item {
+  width: 3rem;
+  height: 1rem;
+  padding: 0;
+  margin-left: -2rem;
+}
+
+.header-main .nav-bar .nav-collapse ul .dropdown-item a {
+  font-size: 2rem;
+}
+
+.header-main .nav-bar .nav-collapse ul .dropdown-item .logout {
+  margin-left: -1rem;
+  font-size: 1.5rem;
+}
+
 main {
-  background-color: #292929;
+  background-color: #222222;
   padding-top: 1rem;
 }
 
 footer {
   text-align: center;
-  border: 1px solid orange;
+  border-top: 1px solid orange;
+  background: #313131;
+  padding-bottom: 0.5rem;
 }
 
 footer p {
@@ -210,6 +236,15 @@ main .carousel .carousel-inner .carousel-item img {
   float: right;
 }
 
+.article-post {
+  background: white;
+  padding-top: 1rem;
+}
+
+.article-post .cont-lft {
+  background: white;
+}
+
 .article-post .cont-lft h4 {
   font-size: 1.2rem;
   margin-left: 1rem;
@@ -315,6 +350,10 @@ main .carousel .carousel-inner .carousel-item img {
   margin-left: 1rem;
 }
 
+.cont-rgt {
+  background: white;
+}
+
 .cont-rgt h3, .cont-rgt h2 {
   background-color: black;
   color: orange;
@@ -349,7 +388,6 @@ main .carousel .carousel-inner .carousel-item img {
   padding: 20px;
   margin: 1.5rem;
   margin-top: 8rem;
-  background: #313131;
 }
 
 #formContent {
@@ -493,6 +531,9 @@ input[type=text]::placeholder, input[type=password]::placeholder, input[type=ema
     margin-right: 3rem;
     margin-top: 1.9rem;
   }
+  .header-main .nav-bar .nav-full ul {
+    margin-right: 8rem;
+  }
   .header-main .nav-bar .nav-full ul li {
     display: inline-flex;
     list-style: none;
@@ -506,6 +547,24 @@ input[type=text]::placeholder, input[type=password]::placeholder, input[type=ema
   .header-main .nav-bar .nav-full ul li a:hover {
     color: orange;
     transition: 0.5s;
+  }
+  .header-main .nav-bar .nav-full .dropdown-item {
+    padding-left: auto;
+    width: 2rem;
+    background: #313131;
+  }
+  .header-main .nav-bar .nav-full .dropdown-item a {
+    font-size: 1rem;
+    padding-left: 0;
+  }
+  .header-main .nav-bar .nav-full .logout {
+    color: orange;
+  }
+  .header-main .nav-bar .nav-full .dropdown-menu {
+    background: #313131;
+  }
+  main .carousel .carousel-inner .carousel-item img {
+    height: 26rem;
   }
   input[type=button] {
     margin-left: 12rem;
@@ -541,6 +600,22 @@ input[type=text]::placeholder, input[type=password]::placeholder, input[type=ema
 }
 
 @media screen and (min-width: 1200px) {
+  .header-main .nav-bar .nav-full ul li a {
+    font-size: 1.4rem;
+  }
+  .header-main .nav-bar .nav-full ul {
+    margin-right: 13rem;
+    margin-top: -0.7rem;
+  }
+  .header-main .nav-bar .nav-full .dropdown-item {
+    padding-left: auto;
+    width: 2rem;
+    background: #313131;
+  }
+  .header-main .nav-bar .nav-full .dropdown-item a {
+    font-size: 1.4rem;
+    padding-left: 0;
+  }
   main .carousel {
     width: 70%;
     margin-left: 16.5rem;

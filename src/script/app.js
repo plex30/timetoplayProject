@@ -7,7 +7,6 @@ window.onload = () => {
 
 };
 
-let tokenUser = '';
 //***********************SHOW CONTENT******************************
 
 const showHeader = () => {
@@ -67,6 +66,7 @@ const createListNav = () => {
         } else {
             a$$.innerHTML = `<i class='bx bx-user' style="color:orange"></i>`;
             a$$.classList.add("a-sign");
+            li$$.classList.add('dropdown-item');
             
         }
         li$$.appendChild(a$$);
@@ -271,23 +271,35 @@ const logIn = (usr, pass) => {
 }
 
 const authUser = () => {
-    const a$$ = document.querySelector(".a-sign");
-
+    const liDrop$$ = document.querySelectorAll('.dropdown-item');
     let dbUser = new Dexie("Userdb");
     dbUser.version(2).stores({
         users: "user ,mail ,password, token",
     });
     dbUser.users.each(user => {
         if (user.token != '') {
-            a$$.innerHTML = `<p>Bienvenido<span style="color:black"> ${user.user}</span></p>`;
-            a$$.classList.add('logout');
-            a$$.addEventListener('click', ()=>{LogOut(user.user);})
+            for (let i = 0; i < liDrop$$.length; i++) {
+                liDrop$$[i].innerHTML=` <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Bienvenido ${user.user}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item logout">Cerrar Sesión</a></li>
+          </ul>`
+                
+            }
+            
+            const aDrop$$ = document.querySelectorAll('.dropdown-item.logout');
+            for (let i = 0; i < aDrop$$.length; i++) {
+                aDrop$$[i].addEventListener('click', ()=>{logOut(user.user)});
+                
+            }
+            
         }
 
     })
 }
 
-const LogOut = (user)=>{
+const logOut = (user)=>{
     const a$$ = document.querySelector(".a-sign.logout");
     let dbUser = new Dexie("Userdb");
     dbUser.version(2).stores({
@@ -296,7 +308,6 @@ const LogOut = (user)=>{
 
     dbUser.users.where({user: user}).first(user=>{
         if (user.token != '') {
-            confirm('¿Está seguro que quiero salir de la sesión')
             dbUser.users.update(user, {token:''})
             location.reload();
         }else{

@@ -35,6 +35,10 @@
         margin-top: 1.9rem;
     }
 
+    .header-main .nav-bar .nav-full ul{
+        margin-right: 8rem;
+    }
+
     .header-main .nav-bar .nav-full ul li {
         display: inline-flex;
         list-style: none;
@@ -50,6 +54,27 @@
     .header-main .nav-bar .nav-full ul li a:hover {
         color: orange;
         transition: 0.5s;
+    }
+
+    .header-main .nav-bar .nav-full .dropdown-item {
+        padding-left: auto;
+        width: 2rem;
+        background: rgb(49, 49, 49);
+    }
+    .header-main .nav-bar .nav-full .dropdown-item a{
+        font-size: 1rem;
+        padding-left: 0;
+        
+    }
+    .header-main .nav-bar .nav-full .logout{
+        color: orange;
+    }
+
+    .header-main .nav-bar .nav-full .dropdown-menu{
+        background: rgb(49, 49, 49);
+    }
+    main .carousel .carousel-inner .carousel-item img{
+        height: 26rem;
     }
 
     input[type=button] {
@@ -96,6 +121,25 @@
 }
 
 @include desktop {
+    .header-main .nav-bar .nav-full ul li a {
+        font-size: 1.4rem;
+    }
+
+    .header-main .nav-bar .nav-full ul {
+        margin-right: 13rem;
+        margin-top: -0.7rem;
+    }
+
+    .header-main .nav-bar .nav-full .dropdown-item {
+        padding-left: auto;
+        width: 2rem;
+        background: rgb(49, 49, 49);
+    }
+    .header-main .nav-bar .nav-full .dropdown-item a{
+        font-size: 1.4rem;
+        padding-left: 0;
+        
+    }
 
     
     main .carousel{

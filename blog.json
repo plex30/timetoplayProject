@@ -258,6 +258,66 @@
             "content": "<p>No queda tiempo, el mundo que conocemos se acerca a su fin. Has preparado todo lo necesario para pasar una larga temporada bajo tierra, a salvo dentro un búnker. Ha llegado el momento de escoger de tu colección</a> la única videoconsola que puedes llevar contigo junto a cinco de sus juegos en formato físico. Olvídate de conexión a internet y tiendas virtuales</a> ¿Cuál sería tu elección?</p><p>Debes elegir sabiamente</a> puesto que vas a pasar muchos años a salvo del infierno nuclear de la superficie. Pero cuidado, el infierno del aburrimiento en los videojuegos también puede ser letal. No debes dejarte llevar por la melancolía</a>, esto es supervivencia, elige sabiamente aquello que pueda ofrecerte un mayor entretenimiento durante estos largos años de penuria y miserias que te queden por vivir.</p><p>El rincón de juego de cada uno de nosotros en nuestro pequeño búnker:</p>",
             "author": "Zack"
 
+        },
+        {
+            "id": 11,
+            "name": "Videojuegos",
+            "tittle": "The Medium: Dual Reality",
+            "image": "src/assets/img/medium.jpg",
+            "date": " 1 de Octubre de 2020",
+            "content": "Bloober Team nos explica el funcionamiento del sistema de Realidades paralelas, una de las mecánicas principales en The Medium, que nos permitirá interactuar como el mundo real y el espiritual al mismo tiempo. En The Medium...",
+            "author": "Logan"
+
+        },
+        {
+            "id": 12,
+            "name": "Videojuegos",
+            "tittle": "Scorn presenta 13 minutos de gameplay",
+            "image": "src/assets/img/scorn.jpg",
+            "date": "22 de Octubre de 2020",
+            "content": "Xbox ha publicado un nuevo vídeo de Scorn, el título de acción en primera persona desarrollado para Xbox Series X por el estudio serbio Ebb Software. Scorn se caracteriza por su imponente apartado técnico y ...",
+            "author": "RealFake"
+
+        },
+        {
+            "id": 13,
+            "name": "Análisis",
+            "tittle": "Star Wars Jedi:Fallen Order",
+            "image": "src/assets/img/starwars.jpg",
+            "date": "11 de Diciembre de 2020",
+            "content": "Benditos sean los soles de Tatooine Respawn se propuso crear una nueva aventura dentro la saga de Star Wars a través de un videojuego para un sólo jugador y centrado en un joven aprendiz jedi. Por lo tanto, Fallen Order se aleja de...",
+            "author": "Beth"
+
+        },
+        {
+            "id": 14,
+            "name": "Videojuegos",
+            "tittle": "Resident Evil 3 Remake: Tráiler y fecha de lanzamiento",
+            "image": "src/assets/img/r3.jpg",
+            "date": "10 de Diciembre de 2020",
+            "content": "Capcom ha presentado de forma oficial Resident Evil 3 Remake, una nueva reinterpretación del famoso survival horror para PSX protagonizado por Jill Valentine. Resident Evil 3 Remake llegará el 3 de abril de 2020 a ...",
+            "author": "Sam"
+
+        },
+        {
+            "id": 15,
+            "name": "Análisis",
+            "tittle": "Análisis Pacer",
+            "image": "src/assets/img/racer.jpg",
+            "date": "29 de Octubre de 2020",
+            "content": "Carreras antigravedad en el siglo XXI En el año 2075, corporaciones de todo el mundo compiten por obtener la gloria en el Campeonato Mundial Pacer, la cumbre del automovilismo antigravedad. No necesitas saber mucho más. En este tipo de juegos el argumento...",
+            "author": "Beth"
+
+        },
+        {
+            "id": 16,
+            "name": "Análisis",
+            "tittle": "Análisis Luigi's Mansion 3",
+            "image": "src/assets/img/luigi.jpg",
+            "date": "18 de Diciembre de 2019",
+            "content": "“El survival de Nintendo” No es precisamente sencillo implementar en un videojuego de manera óptima sus componentes indisolubles e innatos. Elementos como la adicción, la curva de dificultad y la progresión hay que saber cómo, ...",
+            "author": "Jess"
+
         }
         ]
 }
